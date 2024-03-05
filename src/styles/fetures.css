@@ -61,7 +61,7 @@
 .feature-card {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   background-color: rgb(155 112 161);
   padding: 2rem;
@@ -71,6 +71,8 @@
 .feature-info {
   display: flex;
   flex-direction: column;
+  /* width: 35rem;
+  padding: 0rem 5rem; */
   gap: 1rem;
 }
 .feature-title {
@@ -103,4 +105,12 @@
   .feature-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+  .feature-info {
+    display: flex;
+    flex-direction: column;
+    width: 35rem;
+    padding: 0rem 5rem;
+    gap: 1rem;
+  }
 }
+
