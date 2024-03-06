@@ -20,12 +20,8 @@ const Navbar = () => {
     <div>
       <nav>
         <div className="logo">
-        {/* <a href="#logo" class="logo"> */}
-        <img className="brandname" src="images/c.jpg" alt=""  />
-          {/* <i>{logo}</i> */}
+        <img className="brandname" src="images/chankya.png" alt=""  />
           <span className="logo-text"> Chankya AI</span>
-        {/* </a> */}
-          
           </div>
         <input type="checkbox" id="click" checked={isChecked} onChange={handleCheckboxChange} />
         <label htmlFor="click" className="menu-btn">

@@ -11,21 +11,15 @@ nav {
   height: 70px;
   position: fixed;
   width: 100%;
-  background: #838381;
-  /* background: #f0f0f0; */
+  /* background: #838381; */
+  background: #f0f0f0;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px 0 34px;
+  padding: 0 50px 0 20px;
   flex-wrap: wrap;
   z-index: 99999;
   border-bottom: 1px solid white;
 }
-/* nav .logo{
-  color: black;
-  font-size: 2rem;
-  font-weight: 600;
-} */
-
 .logo {
   display: flex;
   align-items: center;
@@ -38,7 +32,10 @@ nav {
 .brandname {
   width: 3.5rem;
   height: 3.5rem;
+  mix-blend-mode: darken;
 }
+
+
 
 .logo i {
   /* height: 5.875rem; */

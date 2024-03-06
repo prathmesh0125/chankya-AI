@@ -2,11 +2,11 @@ body::-webkit-scrollbar {
   background-color: transparent;
 }
 body::-webkit-scrollbar-thumb {
-  background: rgb(192, 63, 251);
-  background: radial-gradient(
+  background: rgb(251, 63, 110);
+  /* background: radial-gradient(
     circle,
     rgba(192, 63, 251, 1) 0%,
     rgba(217, 14, 55, 1) 100%
-    );
+    ); */
     border-radius:20px;
 }
