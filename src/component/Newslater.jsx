@@ -4,15 +4,15 @@ import "../styles/newslater.css";
 const Newslater = () => {
   return (
     <div>
-      <div class="newslater">
-        <div class="newsletter-content">
-          <div class="news-left">
+      <div className="newslater">
+        <div className="newsletter-content">
+          <div className="news-left">
             <h2>stay informed with our Newsletter.</h2>
           </div>
-          <div class="news-right">
-            <form class="news-form">
-              <input class="news-emial" type="text" placeholder="email" />
-              <button class="send-button">Send</button>
+          <div className="news-right">
+            <form className="news-form">
+              <input className="news-emial" type="text" placeholder="email" />
+              <button className="send-button">Send</button>
             </form>
           </div>
         </div>
