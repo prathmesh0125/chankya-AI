@@ -69,9 +69,9 @@ nav ul li a {
 }
 nav ul li a.active,
 nav ul li a:hover {
-  /* color: white;
-  background: black; */
-  color: black;
+   color: white;
+  background: black; 
+  /* color: black; */
   /* background: white; */
 }
 nav ul li .contact {

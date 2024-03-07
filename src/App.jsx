@@ -5,6 +5,7 @@ import Features from './component/Features'
 import Newslater from './component/Newslater'
 // import './App.css'
 import "./styles/locomotive-scrool.css"
+import Signuppage from './component/Signuppage'
 
 function App() {
  
@@ -12,7 +13,8 @@ function App() {
   return (
     <div className='body'>
      <Navbar/>
-     <Hero/>
+     <Signuppage/>
+     {/* <Hero/> */}
      <Features/>
      <Newslater/>
     </div>
