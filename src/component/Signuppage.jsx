@@ -1,54 +1,79 @@
-import React from 'react'
-
+import React from "react";
+import "../styles/signuppage.css";
 const Signuppage = () => {
   return (
     <div>
-      
-    <div>
-       <section className="main-section">
-        <div className="content-left">
-          <p className="section-title">Strategic intelligence for decision making </p>
-          <h1 className="section-description">
-          *Stop flying blind in your decisions. Unleash the power of GenAI with Chanakya AI.*
-          </h1>
-          <p className="section-description">
-          Our enterprise-grade platform empowers you to make data-driven choices with confidence. Analyze both structured and unstructured data and gain **hidden insights** that would normally remain unseen. 
-          </p>
-          <p className="section-description">
-          *Ready to make smarter decisions? Start your free trial of Chanakya AI today!*
-           
-          </p>
-        </div>
-        <div className="content-right">
-          <div className="image-conatainer">
-          <h2>Sign Up</h2>
-      <form >
-        <div>
-          <input type="text" id="firstName" name="firstName" placeholder='first name'  />
-        </div>
-        <div>
-          <label htmlFor="lastName">Last Name:</label>
-          <input type="text" id="lastName" name="lastName" placeholder='lastname'/>
-        </div>
-        <div>
-          <label htmlFor="email">Email Address:</label>
-          <input type="email" id="email" name="email" placeholder='emailAddress'/>
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" placeholder='pick up password'  />
-          <p>Use at least one letter, one numeral, and seven characters.</p>
-        </div>
-        <div>
-          <button type="submit">Sign Up for Chanukya AI </button>
-        </div>
-      </form>
+      <div>
+        <section className="main-section">
+          <div className="content-left">
+            <p className="section-title">
+              Strategic intelligence for decision making{" "}
+            </p>
+            <h1 className="section-description">
+              *Stop flying blind in your decisions. Unleash the power of GenAI
+              with Chanakya AI.*
+            </h1>
+            <p className="section-description">
+              Our enterprise-grade platform empowers you to make data-driven
+              choices with confidence. Analyze both structured and unstructured
+              data and gain **hidden insights** that would normally remain
+              unseen.
+            </p>
+            <p className="section-description">
+              *Ready to make smarter decisions? Start your free trial of
+              Chanakya AI today!*
+            </p>
           </div>
-        </div>
-      </section>
-    </div>
-    </div>
-  )
-}
+          <div className="content-right">
+            <div className="signup-conatainer">
+              <div class="line-container">
+                <div class="line">  <div class="text">Your Text Here</div></div>
+              
 
-export default Signuppage
+              </div>
+              <h2>Sign Up & Start Your Free Trial</h2>
+              <form>
+                <div className="nameConatainer">
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="Your first name"
+                  />
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Your last name"
+                  />
+                </div>
+                <div className="email-conatainer">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Your email address"
+                  />
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Pick up password"
+                  />
+                </div>
+                <div className="lastButton">
+                  <p>
+                    Use at least one letter, one numeral, and seven characters.
+                  </p>
+                  <button type="submit">Sign Up for Chanukya AI </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default Signuppage;
