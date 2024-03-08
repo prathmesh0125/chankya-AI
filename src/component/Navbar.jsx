@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars, FaCode, FaTimes } from "react-icons/fa";
 import "../styles/nav.css";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [activeItem, setActiveItem] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    // Update active item based on current URL pathname
+    const pathname = location.pathname;
+    const currentItem = pathname.substring(1) || "Home"; // Remove leading '/' and set default to "Home"
+    setActiveItem(currentItem);
+  }, [location]);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -14,11 +23,6 @@ const Navbar = () => {
     setIsChecked(false);
   };
 
-  const handleItemClick = (itemName) => {
-    setActiveItem(itemName);
-    closeMenu(); // Close menu when an item is clicked
-  };
-
   return (
     <div>
       <nav>
@@ -26,25 +30,59 @@ const Navbar = () => {
           <img className="brandname" src="images/chankya.png" alt="" />
           <span className="logo-text"> Chankya AI</span>
         </div>
-        <input type="checkbox" id="click" checked={isChecked} onChange={handleCheckboxChange} />
+        <input
+          type="checkbox"
+          id="click"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+        />
         <label htmlFor="click" className="menu-btn">
-          {isChecked ? <i><FaTimes /></i> : <i><FaBars /></i>}
+          {isChecked ? (
+            <i>
+              <FaTimes />
+            </i>
+          ) : (
+            <i>
+              <FaBars />
+            </i>
+          )}
         </label>
         <ul>
           <li>
-            <a className={activeItem === "pricing" ? "active" : ""} onClick={() => handleItemClick("pricing")}>
+            <Link
+              className={activeItem === "Home" ? "active" : ""}
+              to="/"
+              onClick={() => setActiveItem("Home")}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={activeItem === "pricing" ? "active" : ""}
+              to="/pricing"
+              onClick={() => setActiveItem("pricing")}
+            >
               Pricing
-            </a>
+            </Link>
           </li>
           <li>
-            <a className={activeItem === "login" ? "active" : ""} onClick={() => handleItemClick("login")}>
+            <Link
+              className={activeItem === "login" ? "active" : ""}
+              to="/login"
+              onClick={() => setActiveItem("login")}
+            >
               Login
-            </a>
+            </Link>
           </li>
           <li>
-            <a className={activeItem === "signup" ? "active" : ""} onClick={() => handleItemClick("signup")}>
+            <Link
+              className={activeItem === "signup" ? "active" : ""}
+              to="/signup"
+              onClick={() => setActiveItem("signup")}
+            >
               Sign up Free
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

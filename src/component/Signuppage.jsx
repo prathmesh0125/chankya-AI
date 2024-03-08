@@ -1,4 +1,5 @@
 import React from "react";
+import { FaGoogle } from "react-icons/fa";
 import "../styles/signuppage.css";
 const Signuppage = () => {
   return (
@@ -26,12 +27,21 @@ const Signuppage = () => {
           </div>
           <div className="content-right">
             <div className="signup-conatainer">
-              <div class="line-container">
-                <div class="line">  <div class="text">Your Text Here</div></div>
-              
-
-              </div>
               <h2>Sign Up & Start Your Free Trial</h2>
+              <div class="line-container">
+                <div class="line">
+                  {" "}
+                  <div class="text">Quick sign up</div>
+                </div>
+                <div className="googleButton">
+                  <button type="submit">
+                    <span>
+                      <FaGoogle />
+                    </span>
+                    <p> Sign Up for Chanukya AI </p>
+                  </button>
+                </div>
+              </div>
               <form>
                 <div className="nameConatainer">
                   <input
