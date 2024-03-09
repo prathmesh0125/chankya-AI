@@ -17,7 +17,7 @@
   align-items: center;
   margin: 1rem 0;
 }
-.googleButton button{
+.googleButton button {
   display: flex;
   flex-direction: row;
   gap: 0.7rem;
@@ -27,22 +27,20 @@
   border-radius: 20px;
   background-color: rgb(3 83 188 / 87%);
   padding: 0.5rem 8rem;
-  
 }
-.googleButton button span{
+.googleButton button span {
   color: white;
   font-size: 22px;
   line-height: 10px;
-
 }
-.googleButton button p{
+.googleButton button p {
   color: white;
   line-height: 22px;
 }
 .nameConatainer {
   display: flex;
   gap: 2rem;
-  padding:1rem 2rem;
+  padding: 1rem 2rem;
 }
 .nameConatainer input {
   border: 2px solid black;
@@ -91,11 +89,28 @@
 
 .line::before,
 .line::after {
-  content: '';
+  content: "";
   flex: 1;
   border-bottom: 1px solid black;
 }
 
 .text {
   padding: 0 10px;
+}
+@media screen and (max-width: 1200px) {
+  .signup-conatainer {
+    width: 28rem;
+  }
+  .googleButton button {
+    padding: 0.5rem 5rem;
+  }
+  .nameConatainer input {
+    outline: none;
+    width: 8rem;
+    border-radius: 20px;
+    padding: 5px auto;
+  }
+  .lastButton button {
+    padding: 0.5rem 6rem;
+  }
 }

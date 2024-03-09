@@ -90,7 +90,7 @@
   /* margin-top: 8rem; */
   object-position: center;
 }
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 860px) {
   .main-section {
     flex-direction: row;
     /* margin-top: 3rem; */
