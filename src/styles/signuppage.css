@@ -97,6 +97,15 @@
 .text {
   padding: 0 10px;
 }
+.success-message {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  top: 4.2rem;
+  right: 8rem;
+}
 @media screen and (max-width: 1200px) {
   .signup-conatainer {
     width: 28rem;
@@ -114,3 +123,27 @@
     padding: 0.5rem 6rem;
   }
 }
+@media screen and (max-width: 450px) {
+  .signup-conatainer {
+    width: 25rem;
+    padding: 2rem 1rem;
+  }
+  .lastButton p {
+    width: 17rem;
+    font-size: 13px;
+}
+  /* .googleButton button {
+    padding: 0.5rem 5rem;
+  }
+  .nameConatainer input {
+    outline: none;
+    width: 8rem;
+    border-radius: 20px;
+    padding: 5px auto;
+  }
+  .lastButton button {
+    padding: 0.5rem 6rem; */
+  /* } */
+}
+
+
