@@ -3,7 +3,8 @@ import { FaGoogle } from "react-icons/fa";
 import Features from "./Features";
 import Newslater from "./Newslater";
 import Navbar from "./Navbar";
-import "../styles/signuppage.css"
+import "../styles/signuppage.css";
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 
 const Signuppage = () => {
   const [formData, setFormData] = useState({
@@ -22,21 +23,26 @@ const Signuppage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Store form data in localStorage
-    localStorage.setItem("userData", JSON.stringify(formData));
-    // Set registration success to true
+  const handleGoogleLoginSuccess = (credentialResponse) => {
+    // Store Google login details in local storage
+    localStorage.setItem("googleLoginData", JSON.stringify(credentialResponse));
     setRegistrationSuccess(true);
-    // Redirect to chatbox page after a delay
+
+    // console.log("Google login data stored:", credentialResponse);
     setTimeout(() => {
       setRegistrationSuccess(false);
-      // window.location.href = "/chatbox";
-    }, 1000);
-    setTimeout(() => {
       window.location.href = "/chatbox";
     }, 2000);
-    
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem("userData", JSON.stringify(formData));
+    setRegistrationSuccess(true);
+    setTimeout(() => {
+      setRegistrationSuccess(false);
+      window.location.href = "/chatbox";
+    }, 2000);
   };
 
   return (
@@ -77,12 +83,15 @@ const Signuppage = () => {
                   <div className="text">Quick sign up</div>
                 </div>
                 <div className="googleButton">
-                  <button type="submit">
-                    <span>
-                      <FaGoogle />
-                    </span>
-                    <p> Sign Up for Chanukya AI </p>
-                  </button>
+                  <GoogleOAuthProvider clientId="650827419181-dr1ghffigh7neq82fg87ld3hcipi82r8.apps.googleusercontent.com">
+                    <GoogleLogin
+                      onSuccess={handleGoogleLoginSuccess}
+                      onError={() => {
+                        console.log('Login Failed');
+                      }}
+                      useOneTap
+                    />
+                  </GoogleOAuthProvider>
                 </div>
               </div>
               <form onSubmit={handleSubmit} method="post">
