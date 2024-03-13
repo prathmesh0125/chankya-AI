@@ -21,7 +21,7 @@ const Signuppage = () => {
       ...formData,
       [name]: value
     });
-  };
+  };d
 
   const handleGoogleLoginSuccess = (credentialResponse) => {
     // Store Google login details in local storage

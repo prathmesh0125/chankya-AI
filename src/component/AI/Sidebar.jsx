@@ -63,7 +63,7 @@ const Sidebar = () => {
           {toggle ? <p>Setting</p> : null}
         </div>
       <div className="user-profile">
-        <img src="images/user.jpg" alt="" srcset="" />
+        <img src="images/user.jpg" alt=""  />
         {toggle ? <p>Username</p> : null}
       </div>
       </div>

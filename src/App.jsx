@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "./component/Navbar";
 import Hero from "./component/Hero";
 // import './App.css'
-import "./styles/locomotive-scrool.css";
+// import "./styles/loco/motive-scrool.css";
 import Signuppage from "./component/Signuppage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./component/Login";
