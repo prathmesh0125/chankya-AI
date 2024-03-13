@@ -5,6 +5,7 @@ import Newslater from "./Newslater";
 import Navbar from "./Navbar";
 import "../styles/signuppage.css";
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { Link, useLocation } from "react-router-dom";
 
 const Signuppage = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ const Signuppage = () => {
     // console.log("Google login data stored:", credentialResponse);
     setTimeout(() => {
       setRegistrationSuccess(false);
-      window.location.href = "/chatbox";
+      // window.location.href = "/chatbox";
     }, 2000);
   };
 
@@ -41,7 +42,7 @@ const Signuppage = () => {
     setRegistrationSuccess(true);
     setTimeout(() => {
       setRegistrationSuccess(false);
-      window.location.href = "/chatbox";
+      // window.location.href = "/chatbox";
     }, 2000);
   };
 
@@ -135,7 +136,7 @@ const Signuppage = () => {
                   <p>
                     Use at least one letter, one numeral, and seven characters.
                   </p>
-                  <button type="submit"> Sign Up for Chanukya AI </button>
+                 <Link to="/chatbox"> <button type="submit"> Sign Up for Chanukya AI </button> </Link>    
                 </div>
               </form>
             </div>

@@ -13,10 +13,11 @@ function App() {
     <div className="body">
       <Router>
         <Routes>
+     
           <Route path="/" element={<Hero />} />
           <Route path="/signup" element={<Signuppage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/chatbox" element={<Login />} />
+          <Route path="/chatbox" element={<ChankyaAi />} />
         </Routes>
       </Router>
     </div>
