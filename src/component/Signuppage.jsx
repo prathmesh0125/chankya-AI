@@ -5,7 +5,7 @@ import Newslater from "./Newslater";
 import Navbar from "./Navbar";
 import "../styles/signuppage.css";
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signuppage = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +15,7 @@ const Signuppage = () => {
     password: ""
   });
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,10 +30,10 @@ const Signuppage = () => {
     localStorage.setItem("googleLoginData", JSON.stringify(credentialResponse));
     setRegistrationSuccess(true);
 
-    // console.log("Google login data stored:", credentialResponse);
     setTimeout(() => {
       setRegistrationSuccess(false);
-      // window.location.href = "/chatbox";
+      // Redirect to /chatbox after 2 seconds using react-router-dom
+      navigate("/chatbox");
     }, 2000);
   };
 
@@ -42,7 +43,8 @@ const Signuppage = () => {
     setRegistrationSuccess(true);
     setTimeout(() => {
       setRegistrationSuccess(false);
-      // window.location.href = "/chatbox";
+      // Redirect to /chatbox after 2 seconds using react-router-dom
+      navigate("/chatbox");
     }, 2000);
   };
 
@@ -136,7 +138,7 @@ const Signuppage = () => {
                   <p>
                     Use at least one letter, one numeral, and seven characters.
                   </p>
-                 <Link to="/chatbox"> <button type="submit"> Sign Up for Chanukya AI </button> </Link>    
+                 <button type="submit"> Sign Up for Chanukya AI </button>
                 </div>
               </form>
             </div>
