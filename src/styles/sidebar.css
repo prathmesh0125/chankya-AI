@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content:space-between ;
   /* align-items: center; */
-  /* background-color: #f0f4f9; */
-  background-color: #ccd3dc;
+  background-color: #f0f4f9;
+  /* background-color: #ccd3dc; */
   padding: 25px 15px;
   border-right: 1px solid black;
 }
