@@ -12,7 +12,7 @@ const Main = () => {
   return (
     <div className="main">
       <div className="nav">
-        <img src="assets/user.jpg" />
+        <img className="brandname" src="images/chankya.png" />
         <p>Chankya AI</p>
       </div>
       <div className="main-container">
@@ -20,7 +20,7 @@ const Main = () => {
           <p>
             <span>Hello, Vaibhav.</span>
           </p>
-          <p>How can I help you today?</p>
+          <p>How can I help you Today?</p>
         </div>
         <div className="cards">
           <div className="card">
@@ -47,12 +47,12 @@ const Main = () => {
               placeholder="Enter a prompt here"
             />
             <div>
-              <i>
+              {/* <i>
                 <MdOutlineAddPhotoAlternate />
               </i>
               <i>
                 <FaMicrophone />
-              </i>
+              </i> */}
               <i onClick={() => onSent()}>
                 <IoSendSharp />
               </i>
