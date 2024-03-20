@@ -11,7 +11,13 @@ import { IoSettings } from "react-icons/io5";
 import { Context } from "../Context";
 const Sidebar = () => {
   const [toggle, setToggle] = useState(false);
-  const { onsent, prevoisPrompt, setRecentPrompt } = useContext(Context);
+  const { onSent, prevoisPrompt, setRecentPrompt } = useContext(Context);
+  // for recent data loading
+
+  const loadPrompt= async(prompt)=>{
+    setRecentPrompt(prompt);
+    await onSent(prompt);
+  }
   return (
     <div className="sidebar">
       <div className="top">
