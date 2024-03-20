@@ -2,31 +2,42 @@ import { createContext } from "react";
 import runChat from "../component/gemini";
 import { useState } from "react";
 export const Context = createContext();
-const delayPara = (index, nextword) => {};
 const ContextProvider = (props) => {
   const [input, setInput] = useState("");
   const [recentPrompt, setRecentPrompt] = useState("");
-  const [prevoisPrompt, setprevoisPrompt] = useState("");
+  const [prevoisPrompt, setPrevoisPrompt] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState(false);
-
+  const delayPara = (index, nextword) => {
+    setTimeout(function () {
+      setResultData((prev) => prev + nextword);
+    }, 75 * index);
+  };
   const onSent = async (prompt) => {
-    setResultData(" ");
+    setResultData("");
     setLoading(true);
     setShowResult(true);
     setRecentPrompt(input);
+    setPrevoisPrompt((prev) => [...prev, input]);
     const response = await runChat(input);
-    let responseArray = response;
-    let newArray;
-    // for (let i = 0; i < responseArray.length; i++) {
-    //   if (i === 0 || i % 2 !== 1) {
-    //     newArray += responseArray[i];
-    //   } else {
-    //     newArray += "<b>" + responseArray[i] + " </b>";
-    //   }
-    // }
-    setResultData(responseArray);
+    let responseArray = response.split("**");
+    let newArray="";
+    for (let i = 0; i < responseArray.length; i++) {
+      if (i === 0 || i % 2 !== 1) {
+        newArray += responseArray[i];
+      } else {
+        newArray += "<b>" + responseArray[i] + " </b>";
+      }
+    }
+    let response2 = newArray.split("*").join("</br>");
+    // setResultData(response2);
+    let newresponseArray = response2.split(" ");
+    for (let i = 0; i < newresponseArray.length; i++) {
+      const nextword = newresponseArray[i];
+      delayPara(i, nextword + " ");
+    }
+    // setResultData
     setLoading(false);
     setInput("");
   };
@@ -34,7 +45,7 @@ const ContextProvider = (props) => {
 
   const contextValue = {
     prevoisPrompt,
-    setprevoisPrompt,
+    setPrevoisPrompt,
     onSent,
     setRecentPrompt,
     recentPrompt,
