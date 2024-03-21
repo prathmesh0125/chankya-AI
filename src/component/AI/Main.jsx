@@ -6,13 +6,15 @@ import { IoSendSharp } from "react-icons/io5";
 import { Context } from "../Context";
 
 const Main = () => {
-  const { onSent,
+  const {
+    onSent,
     recentPrompt,
     showResult,
     loading,
     resultData,
     setInput,
-    input,} = useContext(Context);
+    input,
+  } = useContext(Context);
 
   return (
     <div className="main">
@@ -31,20 +33,17 @@ const Main = () => {
             </div>
             <div className="cards">
               <div className="card">
-                <p>Suggest beautiful places to see on an upcoming road trip</p>
-             
+                <p>Provide an overview of Microsoft's business.</p>
               </div>
               <div className="card">
-                <p>Briefly summarize this concept: urban road trip</p>
-               
+                <p>Provide Costco’s Forward EV/EBITDA ratio.
+</p>
               </div>
               <div className="card">
-                <p>Brainstorm team bonding activities for our work retreat</p>
-               
+                <p>Provide an overview of Microsoft's business.</p>
               </div>
               <div className="card">
-                <p>Improve the readability of the following code</p>
-              
+                <p>Provide an overview of Microsoft's business.</p>
               </div>
             </div>
           </>
@@ -83,12 +82,9 @@ const Main = () => {
               <i onClick={() => onSent()}>
                 <IoSendSharp />
               </i>
+              {/* </button> */}
             </div>
           </div>
-          <p className="bottom-info">
-            Gemini may display inaccurate info, including about people, so
-            double-check its response. Your privacy and Gemini Apps
-          </p>
         </div>
       </div>
     </div>

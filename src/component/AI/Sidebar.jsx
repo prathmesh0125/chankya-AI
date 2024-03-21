@@ -11,7 +11,7 @@ import { IoSettings } from "react-icons/io5";
 import { Context } from "../Context";
 const Sidebar = () => {
   const [toggle, setToggle] = useState(false);
-  const { onSent, prevoisPrompt, setRecentPrompt } = useContext(Context);
+  const { onSent, prevoisPrompt, setRecentPrompt,newChat } = useContext(Context);
   // for recent data loading
 
   const loadPrompt= async(prompt)=>{
@@ -26,7 +26,7 @@ const Sidebar = () => {
           <MdMenu />
         </i>
         {toggle ? (
-          <div className="newchat">
+          <div onClick={()=>newChat()} className="newchat">
             <i>
               <FaPlus />
             </i>
@@ -35,10 +35,12 @@ const Sidebar = () => {
         ) : null}
         {toggle ? (
           <div className="recent">
-            <p className="recent-title">Recent</p>
+            <p onClick={()=>loadPrompt(item)} className="recent-title">Recent</p>
             {prevoisPrompt.map((item, index) => {
               return (
-                <div key={index} className="recent-entry">
+                <div key={index
+                }   onClick={()=>loadPrompt(item)} 
+                className="recent-entry">
                   <i>
                     <FaRegMessage />
                   </i>

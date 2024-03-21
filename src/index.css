@@ -11,4 +11,16 @@ body::-webkit-scrollbar-thumb {
     ); */
     border-radius:20px;
 }
-
+#root{
+  /* min-height: 100vh;
+  display: flex; */
+  animation:anime 2s;
+}
+@keyframes anime{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

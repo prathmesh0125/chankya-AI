@@ -101,9 +101,16 @@ cursor: pointer;
   width: 40px;
     cursor: pointer;
     display: flex;
-    font-size: 33px;
+    font-size: 30px;
     justify-content: center;
+    align-items: center;
+background-color: transparent;
+box-shadow: 1px 1px 1px black;
 }
+/* .search-box i{
+  padding: 0px 10px;
+  margin: 0.2rem 1rem;
+} */
 .search-box input{
   flex: 1;
   background: transparent;
