@@ -20,7 +20,7 @@ const Main = () => {
     <div className="main">
       <div className="nav">
         <img className="brandname" src="images/chankya.png" />
-        <p>Chankya AI</p>
+        <p>Finalyst</p>
       </div>
       <div className="main-container">
         {!showResult ? (

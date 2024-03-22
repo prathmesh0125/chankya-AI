@@ -28,7 +28,7 @@ const Navbar = () => {
       <nav>
         <div className="logo">
           <img className="brandname" src="images/chankya.png" alt="" />
-          <span className="logo-text"> Chankya AI</span>
+          <span className="logo-text"> Finalyst</span>
         </div>
         <input
           type="checkbox"
