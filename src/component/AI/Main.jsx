@@ -78,10 +78,12 @@ const Main = () => {
               placeholder="Enter a prompt here"
             />
             <div>
-
-              <i onClick={() => onSent()}>
-                <IoSendSharp />
-              </i>
+{
+  input?<i onClick={() => onSent()}>
+  <IoSendSharp />
+</i>:null
+}
+              
               {/* </button> */}
             </div>
           </div>

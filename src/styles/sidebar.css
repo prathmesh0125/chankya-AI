@@ -1,8 +1,8 @@
-.sidebar{
+.sidebar {
   min-height: 100vh;
   display: inline-flex;
   flex-direction: column;
-  justify-content:space-between ;
+  justify-content: space-between;
   /* align-items: center; */
   background-color: #f0f4f9;
   /* background-color: #ccd3dc; */
@@ -12,22 +12,22 @@
 
 .sidebar .top i {
   width: 20px;
-} 
-.sidebar .menu{
-display: block;
-margin-left: 10px;
-cursor: pointer;
-transition: 1s;
-font-size: 1.7rem !important;
 }
-.sidebar .newchat{
-  margin-top:  30px;
+.sidebar .menu {
+  display: block;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 1s;
+  font-size: 1.7rem !important;
+}
+.sidebar .newchat {
+  margin-top: 30px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 10px 45px;
   /* background-color: #e6eaf1; */
-  background-color: #e2f50a;
+  background-color: #4de6f599;
   border-radius: 50px;
   font-size: 14px;
   color: grey;
@@ -36,16 +36,15 @@ font-size: 1.7rem !important;
 /* .sidebar .newchat p{
   color: black;
 } */
-.sidebar .recent{
+.sidebar .recent {
   display: flex;
   flex-direction: column;
-
 }
-.sidebar .recent-title{
-margin-top: 30px;
-margin-bottom: 20px;
+.sidebar .recent-title {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
-.sidebar .recent-entry{
+.sidebar .recent-entry {
   display: flex;
   align-items: start;
   gap: 10px;
@@ -55,27 +54,34 @@ margin-bottom: 20px;
   color: #282828;
   cursor: pointer;
 }
-.sidebar .recent-entry:hover{
- background-color: #e2e6eb;
+.sidebar .recent-entry:hover {
+  background-color: #e2e6eb;
 }
-.sidebar .top i , .bottom-item i {
+.sidebar .top i,
+.bottom-item i {
   font-size: 1.2rem;
 }
-.sidebar .bottom{
-display: flex;
-flex-direction: column;
+.sidebar .bottom {
+  display: flex;
+  flex-direction: column;
 }
-.sidebar .bottom-item{
+.sidebar .bottom-item {
   padding-right: 10px;
   cursor: pointer;
 }
-.user-profile{
+.user-profile {
   display: flex;
-    gap: 2rem;
-    align-items: center;
-    height: 3rem;
+  gap: 2rem;
+  align-items: center;
+  height: 3rem;
+  cursor: pointer;
 }
-.user-profile img{
+.user-profile img {
   width: 2.7rem;
- mix-blend-mode: darken;
+  mix-blend-mode: darken;
+}
+@media screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
 }
