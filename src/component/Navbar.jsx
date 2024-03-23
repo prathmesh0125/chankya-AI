@@ -81,7 +81,7 @@ const Navbar = () => {
               to="/dumy"
               onClick={() => setActiveItem("dumy")}
             >
-              Login
+              Demo
             </Link>
           </li>
           <li>
