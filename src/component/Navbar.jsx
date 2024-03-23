@@ -77,6 +77,15 @@ const Navbar = () => {
           </li>
           <li>
             <Link
+              className={activeItem === "dumy" ? "active" : ""}
+              to="/dumy"
+              onClick={() => setActiveItem("dumy")}
+            >
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link
               className={activeItem === "signup" ? "active" : ""}
               to="/signup"
               onClick={() => setActiveItem("signup")}

@@ -1,0 +1,72 @@
+.ai-container {
+  display: grid;
+  grid-template-columns: repeat(2,1fr); /* Adjusted column widths */
+  gap: 20px;
+}
+
+.section {
+  border: 1px solid #ccc;
+  padding: 20px;
+  height: 200px; /* Adjust the height as needed */
+}
+
+.text-section {
+  background-color: #f0f0f0;
+  height: 400px; /* Adjust the height as needed */
+}
+
+.graph-section {
+  background-color: #e0e0e0;
+  height: 400px; /* Adjust the height as needed */
+}
+
+.table-section {
+  background-color: #d0d0d0;
+  height: 200px; /* Adjust the height as needed */
+}
+
+.related-questions-section {
+  background-color: #c0c0c0;
+  height: 200px; /* Adjust the height as needed */
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.search-box {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.search-box button {
+  padding: 8px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color: #0056b3;
+}
+
+.graph-container{
+  height: 20rem;
+
+}
