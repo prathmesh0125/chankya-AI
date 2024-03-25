@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { VictoryChart, VictoryLine, VictoryAxis } from 'victory';
-import '../../styles/dumy.css'; // Import CSS file for styling
+// import '../../styles/dumy.css'; // Import CSS file for styling
 
 const AIPage = () => {
   const [textData] = useState("Text data from Gemini API");
