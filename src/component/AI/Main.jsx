@@ -5,6 +5,7 @@ import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import { IoSendSharp } from "react-icons/io5";
 import { Context } from "../Context";
 import { VictoryChart, VictoryLine, VictoryAxis } from "victory";
+import V from "./V";
 
 const Main = () => {
   const {
@@ -51,7 +52,7 @@ const Main = () => {
   return (
     <div className="main">
       <div className="nav">
-        <img className="brandname" src="images/chankya.png" />
+        {/* <img className="brandname" src="images/chankya.png" /> */}
         <p>Finalyst</p>
       </div>
       <div className="main-container">
@@ -79,8 +80,79 @@ const Main = () => {
             </div>
           </>
         ) : (
-          <div className="Main-page">
-            <div className="result">
+          // <div className="Main-page">
+          //   <div className="result">
+          //     <div className="result-title">
+          //       <img src="images/user.jpg" alt="" />
+          //       <p>{recentPrompt}</p>
+          //     </div>
+          //     <div className="result-data">
+          //       <img src="images/chankya.png" alt="" />
+          //       {loading ? (
+          //         <div className="loader">
+          //           <hr />
+          //           <hr />
+          //           <hr />
+          //         </div>
+          //       ) : (
+          //         <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+          //       )}
+          //     </div>
+          //   </div>
+          //   <section className="section graph-section">
+          //     <h2>Graph</h2>
+          //     <div className="graph-container">
+          //       {/* Render your graph here */}
+          //       <VictoryChart>
+          //         <VictoryLine data={graphData} />
+          //         <VictoryAxis />
+          //         <VictoryAxis dependentAxis />
+          //       </VictoryChart>
+          //     </div>
+          //   </section>
+
+          //   {/* Section for table */}
+          //   <section className="section table-section">
+          //     <h2>Table</h2>
+          //     <div className="table-container">
+          //       <table>
+          //         <thead>
+          //           <tr>
+          //             <th>ID</th>
+          //             <th>Name</th>
+          //             <th>Age</th>
+          //           </tr>
+          //         </thead>
+          //         <tbody>
+          //           {tableData.map((row) => (
+          //             <tr key={row.id}>
+          //               <td>{row.id}</td>
+          //               <td>{row.name}</td>
+          //               <td>{row.age}</td>
+          //             </tr>
+          //           ))}
+          //         </tbody>
+          //       </table>
+          //     </div>
+          //   </section>
+
+          //   {/* Section for related questions */}
+          //   <div className="section related-questions-section">
+          //     <h2>Related Questions</h2>
+          //     <div className="related-questions-container">
+          //       <ul>
+          //         {relatedQuestions.map((question, index) => (
+          //           <li key={index}>{question}</li>
+          //         ))}
+          //       </ul>
+          //     </div>
+          //   </div>
+          // </div>
+          // <V/>
+          <section className="Main-page grid grid-cols-1 md:grid-cols-2 gap-6 p-4  md:p-6">
+            {/* Card 1 */}
+            {/* <div className=" card group overflow-y-scroll  shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2"> */}
+            <div className="result  h-[50vh] shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out ">
               <div className="result-title">
                 <img src="images/user.jpg" alt="" />
                 <p>{recentPrompt}</p>
@@ -98,55 +170,70 @@ const Main = () => {
                 )}
               </div>
             </div>
-            <section className="section graph-section">
-              <h2>Graph</h2>
-              <div className="graph-container">
-                {/* Render your graph here */}
-                <VictoryChart>
-                  <VictoryLine data={graphData} />
-                  <VictoryAxis />
-                  <VictoryAxis dependentAxis />
-                </VictoryChart>
-              </div>
-            </section>
-
-            {/* Section for table */}
-            <section className="section table-section">
-              <h2>Table</h2>
-              <div className="table-container">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Age</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {tableData.map((row) => (
-                      <tr key={row.id}>
-                        <td>{row.id}</td>
-                        <td>{row.name}</td>
-                        <td>{row.age}</td>
+            {/* </div> */}
+            <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
+              <section className="section table-section">
+                <h2>Table</h2>
+                <div className="table-container">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
+                    </thead>
+                    <tbody>
+                      {tableData.map((row) => (
+                        <tr key={row.id}>
+                          <td>{row.id}</td>
+                          <td>{row.name}</td>
+                          <td>{row.age}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
 
-            {/* Section for related questions */}
-            <div className="section related-questions-section">
-              <h2>Related Questions</h2>
-              <div className="related-questions-container">
-                <ul>
-                  {relatedQuestions.map((question, index) => (
-                    <li key={index}>{question}</li>
-                  ))}
-                </ul>
+            {/* Card 2 */}
+            <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
+              <section className="section graph-section">
+                <h2>Graph</h2>
+                <div className="graph-container">
+                  {/* Render your graph here */}
+                  <VictoryChart>
+                    <VictoryLine data={graphData} />
+                    <VictoryAxis />
+                    <VictoryAxis dependentAxis />
+                  </VictoryChart>
+                </div>
+              </section>
+            </div>
+
+            {/* Card 3: Replace this with your table component */}
+
+            {/* Card 4 */}
+            <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
+              <div className="section related-questions-section">
+                <h2>Related Questions</h2>
+                <div className="related-questions-container">
+                  <ul>
+                    {relatedQuestions.map((question, index) => (
+                      <li key={index}>{question}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+
+            {/* Card 5 */}
+            {/* <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
+           
+            </div>
+             */}
+          </section>
         )}
         <div className="main-bottom">
           <div className="search-box">
