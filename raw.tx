@@ -1,0 +1,69 @@
+// <div className="Main-page">
+          //   <div className="result">
+          //     <div className="result-title">
+          //       <img src="images/user.jpg" alt="" />
+          //       <p>{recentPrompt}</p>
+          //     </div>
+          //     <div className="result-data">
+          //       <img src="images/chankya.png" alt="" />
+          //       {loading ? (
+          //         <div className="loader">
+          //           <hr />
+          //           <hr />
+          //           <hr />
+          //         </div>
+          //       ) : (
+          //         <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+          //       )}
+          //     </div>
+          //   </div>
+          //   <section className="section graph-section">
+          //     <h2>Graph</h2>
+          //     <div className="graph-container">
+          //       {/* Render your graph here */}
+          //       <VictoryChart>
+          //         <VictoryLine data={graphData} />
+          //         <VictoryAxis />
+          //         <VictoryAxis dependentAxis />
+          //       </VictoryChart>
+          //     </div>
+          //   </section>
+
+          //   {/* Section for table */}
+          //   <section className="section table-section">
+          //     <h2>Table</h2>
+          //     <div className="table-container">
+          //       <table>
+          //         <thead>
+          //           <tr>
+          //             <th>ID</th>
+          //             <th>Name</th>
+          //             <th>Age</th>
+          //           </tr>
+          //         </thead>
+          //         <tbody>
+          //           {tableData.map((row) => (
+          //             <tr key={row.id}>
+          //               <td>{row.id}</td>
+          //               <td>{row.name}</td>
+          //               <td>{row.age}</td>
+          //             </tr>
+          //           ))}
+          //         </tbody>
+          //       </table>
+          //     </div>
+          //   </section>
+
+          //   {/* Section for related questions */}
+          //   <div className="section related-questions-section">
+          //     <h2>Related Questions</h2>
+          //     <div className="related-questions-container">
+          //       <ul>
+          //         {relatedQuestions.map((question, index) => (
+          //           <li key={index}>{question}</li>
+          //         ))}
+          //       </ul>
+          //     </div>
+          //   </div>
+          // </div>
+          // <V/>

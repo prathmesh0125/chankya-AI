@@ -22,6 +22,7 @@ const Main = () => {
   const [tableData, setTableData] = useState([]);
   const [relatedQuestions, setRelatedQuestions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
   const handleSearch = () => {
     // Dummy graph data
     const dummyGraphData = [
@@ -49,10 +50,10 @@ const Main = () => {
     ];
     setRelatedQuestions(dummyRelatedQuestions);
   };
+
   return (
     <div className="main">
       <div className="nav">
-        {/* <img className="brandname" src="images/chankya.png" /> */}
         <p>Finalyst</p>
       </div>
       <div className="main-container">
@@ -80,79 +81,9 @@ const Main = () => {
             </div>
           </>
         ) : (
-          // <div className="Main-page">
-          //   <div className="result">
-          //     <div className="result-title">
-          //       <img src="images/user.jpg" alt="" />
-          //       <p>{recentPrompt}</p>
-          //     </div>
-          //     <div className="result-data">
-          //       <img src="images/chankya.png" alt="" />
-          //       {loading ? (
-          //         <div className="loader">
-          //           <hr />
-          //           <hr />
-          //           <hr />
-          //         </div>
-          //       ) : (
-          //         <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
-          //       )}
-          //     </div>
-          //   </div>
-          //   <section className="section graph-section">
-          //     <h2>Graph</h2>
-          //     <div className="graph-container">
-          //       {/* Render your graph here */}
-          //       <VictoryChart>
-          //         <VictoryLine data={graphData} />
-          //         <VictoryAxis />
-          //         <VictoryAxis dependentAxis />
-          //       </VictoryChart>
-          //     </div>
-          //   </section>
-
-          //   {/* Section for table */}
-          //   <section className="section table-section">
-          //     <h2>Table</h2>
-          //     <div className="table-container">
-          //       <table>
-          //         <thead>
-          //           <tr>
-          //             <th>ID</th>
-          //             <th>Name</th>
-          //             <th>Age</th>
-          //           </tr>
-          //         </thead>
-          //         <tbody>
-          //           {tableData.map((row) => (
-          //             <tr key={row.id}>
-          //               <td>{row.id}</td>
-          //               <td>{row.name}</td>
-          //               <td>{row.age}</td>
-          //             </tr>
-          //           ))}
-          //         </tbody>
-          //       </table>
-          //     </div>
-          //   </section>
-
-          //   {/* Section for related questions */}
-          //   <div className="section related-questions-section">
-          //     <h2>Related Questions</h2>
-          //     <div className="related-questions-container">
-          //       <ul>
-          //         {relatedQuestions.map((question, index) => (
-          //           <li key={index}>{question}</li>
-          //         ))}
-          //       </ul>
-          //     </div>
-          //   </div>
-          // </div>
-          // <V/>
-          <section className="Main-page grid grid-cols-1 md:grid-cols-2 gap-6 p-4  md:p-6">
+          <section className="Main-page grid grid-cols-1 md:grid-cols-2 gap-6 p-4 md:p-6">
             {/* Card 1 */}
-            {/* <div className=" card group overflow-y-scroll  shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2"> */}
-            <div className="result  h-[50vh] shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out ">
+            <div className="result h-[50vh] shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out ">
               <div className="result-title">
                 <img src="images/user.jpg" alt="" />
                 <p>{recentPrompt}</p>
@@ -170,40 +101,140 @@ const Main = () => {
                 )}
               </div>
             </div>
-            {/* </div> */}
-            <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
+            {/* Card 2 */}
+            <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 h-64">
               <section className="section table-section">
                 <h2>Table</h2>
-                <div className="table-container">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Age</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {tableData.map((row) => (
-                        <tr key={row.id}>
-                          <td>{row.id}</td>
-                          <td>{row.name}</td>
-                          <td>{row.age}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                <div className="flex flex-col overflow-x-hidden">
+                  <div className="sm:-mx-6 lg:-mx-8">
+                    <div className="inline-block min-w-full py-2 sm:px-5 lg:px-8">
+                      <div className="overflow-hidden">
+                        <table className="min-w-full overflow-hidden text-start text-sm font-light text-surface dark:text-white">
+                          <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
+                            <tr>
+                              <th scope="col" className="px-6 py-4">
+                                #
+                              </th>
+                              <th scope="col" className="px-6 py-4">
+                                Heading
+                              </th>
+                              <th scope="col" className="px-6 py-4">
+                                Heading
+                              </th>
+                              <th scope="col" className="px-6 py-4">
+                                Heading
+                              </th>
+                              <th scope="col" className="px-6 py-4">
+                                Heading
+                              </th>
+                              <th scope="col" className="px-6 py-4">
+                                Heading
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b border-neutral-200 dark:border-white/10">
+                              <td className="whitespace-nowrap px-6 py-4 font-medium">
+                                1
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                            </tr>
+                            <tr className="border-b border-neutral-200 dark:border-white/10">
+                              <td className="whitespace-nowrap px-6 py-4 font-medium ">
+                                2
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                            </tr>
+                            <tr className="border-b ">
+                              <td className="whitespace-nowrap px-6 py-4 font-medium ">
+                                3
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td
+                                className="whitespace-nowrap px-6
+- py-4"
+                              >
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-4">
+                                Cell
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </section>
             </div>
-
-            {/* Card 2 */}
+            {/* Card 3 */}
             <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
+              <div className="section related-questions-section">
+                <h2>Related Questions</h2>
+                <div className="related-questions-container">
+                  <ul className="px-5">
+                    {relatedQuestions.map((question, index) => (
+                      <li
+                        className="border-b-2 border-zinc-600 px-4 mt-2"
+                        key={index}
+                      >
+                        {question}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* Card 4 */}
+            <div className="relative mt-auto group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 md:-mt-36">
               <section className="section graph-section">
                 <h2>Graph</h2>
                 <div className="graph-container">
                   {/* Render your graph here */}
-                  <VictoryChart>
+                  <VictoryChart width={400} height={300}>
                     <VictoryLine data={graphData} />
                     <VictoryAxis />
                     <VictoryAxis dependentAxis />
@@ -211,28 +242,6 @@ const Main = () => {
                 </div>
               </section>
             </div>
-
-            {/* Card 3: Replace this with your table component */}
-
-            {/* Card 4 */}
-            <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
-              <div className="section related-questions-section">
-                <h2>Related Questions</h2>
-                <div className="related-questions-container">
-                  <ul>
-                    {relatedQuestions.map((question, index) => (
-                      <li key={index}>{question}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 5 */}
-            {/* <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
-           
-            </div>
-             */}
           </section>
         )}
         <div className="main-bottom">
@@ -256,8 +265,6 @@ const Main = () => {
                   <IoSendSharp />
                 </i>
               ) : null}
-
-              {/* </button> */}
             </div>
           </div>
         </div>
