@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "../../styles/main.css";
 import { FaMicrophone } from "react-icons/fa";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import { IoSendSharp } from "react-icons/io5";
 import { Context } from "../Context";
 import { VictoryChart, VictoryLine, VictoryAxis } from "victory";
-import V from "./V";
 
 const Main = () => {
   const {
@@ -16,12 +15,42 @@ const Main = () => {
     resultData,
     setInput,
     input,
+    setRecentPrompt,
   } = useContext(Context);
+
+  const defaultsuggestion = async (prompt) => {
+    setRecentPrompt(prompt);
+    await onSent(prompt);
+  };
+
   const [textData] = useState("Text data from Gemini API");
   const [graphData, setGraphData] = useState([]);
   const [tableData, setTableData] = useState([]);
   const [relatedQuestions, setRelatedQuestions] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [defaultPrompt, setDefaultPrompt] = useState([
+    "Provide an overview of Microsoft's business.",
+    "Provide an overview of Microsoft's business.",
+    "Provide an overview of Microsoft's business.",
+    "Provide an overview of Microsoft's business.",
+  ]);
+  const [data, setData] = useState([
+    { id: 1, heading1: 'Cell', heading2: 'Cell', heading3: 'Cell', heading4: 'Cell', heading5: 'Cell' },
+    { id: 2, heading1: 'Cell', heading2: 'Cell', heading3: 'Cell', heading4: 'Cell', heading5: 'Cell' },
+    { id: 3, heading1: 'Cell', heading2: 'Cell', heading3: 'Cell', heading4: 'Cell', heading5: 'Cell' }
+    // Add more data as needed
+  ]);
+
+  useEffect(() => {
+    if (resultData) {
+      // Update related questions once resultData is available
+      const dummyRelatedQuestions = [
+        "What is AI?",
+        "How does AI work?",
+        "What are the applications of AI?",
+      ];
+      setRelatedQuestions(dummyRelatedQuestions);
+    }
+  }, [resultData]);
 
   const handleSearch = () => {
     // Dummy graph data
@@ -41,14 +70,6 @@ const Main = () => {
       { id: 3, name: "Doe", age: 35 },
     ];
     setTableData(dummyTableData);
-
-    // Dummy related questions
-    const dummyRelatedQuestions = [
-      "What is AI?",
-      "How does AI work?",
-      "What are the applications of AI?",
-    ];
-    setRelatedQuestions(dummyRelatedQuestions);
   };
 
   return (
@@ -66,18 +87,12 @@ const Main = () => {
               <p>How can I help you today?</p>
             </div>
             <div className="cards">
-              <div className="card">
-                <p>Provide an overview of Microsoft's business.</p>
-              </div>
-              <div className="card">
-                <p>Provide Costco’s Forward EV/EBITDA ratio.</p>
-              </div>
-              <div className="card">
-                <p>Provide an overview of Microsoft's business.</p>
-              </div>
-              <div className="card">
-                <p>Provide an overview of Microsoft's business.</p>
-              </div>
+              {defaultPrompt.map((def, index) => (
+                // onClick={() => (defaultsuggestion(def), handleSearch())}
+                <div key={index} className="card" >
+                  <p>{def}</p>
+                </div>
+              ))}
             </div>
           </>
         ) : (
@@ -112,96 +127,25 @@ const Main = () => {
                         <table className="min-w-full overflow-hidden text-start text-sm font-light text-surface dark:text-white">
                           <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
                             <tr>
-                              <th scope="col" className="px-6 py-4">
-                                #
-                              </th>
-                              <th scope="col" className="px-6 py-4">
-                                Heading
-                              </th>
-                              <th scope="col" className="px-6 py-4">
-                                Heading
-                              </th>
-                              <th scope="col" className="px-6 py-4">
-                                Heading
-                              </th>
-                              <th scope="col" className="px-6 py-4">
-                                Heading
-                              </th>
-                              <th scope="col" className="px-6 py-4">
-                                Heading
-                              </th>
+                              <th scope="col" className="px-6 py-4">#</th>
+                              <th scope="col" className="px-6 py-4">Heading</th>
+                              <th scope="col" className="px-6 py-4">Heading</th>
+                              <th scope="col" className="px-6 py-4">Heading</th>
+                              <th scope="col" className="px-6 py-4">Heading</th>
+                              <th scope="col" className="px-6 py-4">Heading</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr className="border-b border-neutral-200 dark:border-white/10">
-                              <td className="whitespace-nowrap px-6 py-4 font-medium">
-                                1
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                            </tr>
-                            <tr className="border-b border-neutral-200 dark:border-white/10">
-                              <td className="whitespace-nowrap px-6 py-4 font-medium ">
-                                2
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                            </tr>
-                            <tr className="border-b ">
-                              <td className="whitespace-nowrap px-6 py-4 font-medium ">
-                                3
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td
-                                className="whitespace-nowrap px-6
-- py-4"
-                              >
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4">
-                                Cell
-                              </td>
-                            </tr>
+                            {data.map((item, index) => (
+                              <tr key={item.id} className={`${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'} border-b border-neutral-200 dark:border-white/10`}>
+                                <td className="whitespace-nowrap px-6 py-4 font-medium">{item.id}</td>
+                                <td className="whitespace-nowrap px-6 py-4">{item.heading1}</td>
+                                <td className="whitespace-nowrap px-6 py-4">{item.heading2}</td>
+                                <td className="whitespace-nowrap px-6 py-4">{item.heading3}</td>
+                                <td className="whitespace-nowrap px-6 py-4">{item.heading4}</td>
+                                <td className="whitespace-nowrap px-6 py-4">{item.heading5}</td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>

@@ -7,7 +7,6 @@ import Signuppage from "./component/Signuppage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./component/Login";
 import ChankyaAi from "./component/AI/ChankyaAi";
-import Dumy from "./component/AI/Dumy"
 function App() {
   return (
     <div className="body">
@@ -16,7 +15,6 @@ function App() {
           <Route path="/" element={<Hero />} />
           <Route path="/signup" element={<Signuppage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dumy" element={<Dumy />} />
           <Route path="/chatbox" element={<ChankyaAi />} />
         </Routes>
       </Router>
