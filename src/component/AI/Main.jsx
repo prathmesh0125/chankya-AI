@@ -23,7 +23,6 @@ const Main = () => {
     await onSent(prompt);
   };
 
-  const [textData] = useState("Text data from Gemini API");
   const [graphData, setGraphData] = useState([]);
   const [tableData, setTableData] = useState([]);
   const [relatedQuestions, setRelatedQuestions] = useState([]);
@@ -88,8 +87,8 @@ const Main = () => {
             </div>
             <div className="cards">
               {defaultPrompt.map((def, index) => (
-                // onClick={() => (defaultsuggestion(def), handleSearch())}
-                <div key={index} className="card" >
+                <div key={index} 
+                onClick={() => (defaultsuggestion(def), handleSearch())} className="card" >
                   <p>{def}</p>
                 </div>
               ))}
