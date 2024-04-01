@@ -29,6 +29,7 @@ const ContextProvider = (props) => {
     let response;
     if (prompt !== undefined) {
       response = await runChat(prompt);
+      setPrevoisPrompt((prev) => [...prev, prompt]);
       setRecentPrompt(prompt);
     } else {
       setPrevoisPrompt((prev) => [...prev, input]);
@@ -42,7 +43,7 @@ const ContextProvider = (props) => {
       if (i === 0 || i % 2 !== 1) {
         newArray += responseArray[i];
       } else {
-        newArray += "<b>" + responseArray[i] + " </b>";
+        newArray +=  responseArray[i] ;
       }
     }
     let response2 = newArray.split("*").join("</br>");
