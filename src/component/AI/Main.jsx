@@ -5,7 +5,7 @@ import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import { IoSendSharp } from "react-icons/io5";
 import { Context } from "../Context";
 import { VictoryChart, VictoryLine, VictoryAxis } from "victory";
-
+import Resources from "../AI/Resources";
 const Main = () => {
   const {
     onSent,
@@ -33,9 +33,30 @@ const Main = () => {
     "Provide an overview of Microsoft's business.",
   ]);
   const [data, setData] = useState([
-    { id: 1, heading1: 'Cell', heading2: 'Cell', heading3: 'Cell', heading4: 'Cell', heading5: 'Cell' },
-    { id: 2, heading1: 'Cell', heading2: 'Cell', heading3: 'Cell', heading4: 'Cell', heading5: 'Cell' },
-    { id: 3, heading1: 'Cell', heading2: 'Cell', heading3: 'Cell', heading4: 'Cell', heading5: 'Cell' }
+    {
+      id: 1,
+      heading1: "Cell",
+      heading2: "Cell",
+      heading3: "Cell",
+      heading4: "Cell",
+      heading5: "Cell",
+    },
+    {
+      id: 2,
+      heading1: "Cell",
+      heading2: "Cell",
+      heading3: "Cell",
+      heading4: "Cell",
+      heading5: "Cell",
+    },
+    {
+      id: 3,
+      heading1: "Cell",
+      heading2: "Cell",
+      heading3: "Cell",
+      heading4: "Cell",
+      heading5: "Cell",
+    },
     // Add more data as needed
   ]);
 
@@ -79,8 +100,7 @@ const Main = () => {
   // --gray: #808080;
   // --dark-gray: #555;
   return (
-    // bg-[#f0f0f0]
-    <div className="main ">
+    <div className="main bg-[#f0f0f0]">
       {/* <div className="nav">
         <p>Finalyst</p>
       </div> */}
@@ -95,8 +115,11 @@ const Main = () => {
             </div>
             <div className="cards">
               {defaultPrompt.map((def, index) => (
-                <div key={index} 
-                onClick={() => (defaultsuggestion(def), handleSearch())} className="card" >
+                <div
+                  key={index}
+                  onClick={() => (defaultsuggestion(def), handleSearch())}
+                  className="card"
+                >
                   <p>{def}</p>
                 </div>
               ))}
@@ -105,8 +128,7 @@ const Main = () => {
         ) : (
           <section className="Main-page grid grid-cols-1  md:grid-cols-2  md:grid-rows-2 gap-8 p-2 md:p-3">
             {/* Card 1 */}
-            <div className="result md:row-start-1 md:row-end-3 w-[46rem]  shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out ">
-            {/* bg-neutral-300 */}
+            <div className="result md:row-start-1 md:row-end-3 w-[46rem]  bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out ">
               <div className="result-title">
                 <img src="images/user.jpg" alt="" />
                 <p>{recentPrompt}</p>
@@ -120,13 +142,18 @@ const Main = () => {
                     <hr />
                   </div>
                 ) : (
-                  <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+                  <div>
+                    <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+                    {/* <Resources /> */}
+                  </div>
                 )}
               </div>
             </div>
             {/* Card 2 */}
-            <div className="relative group overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 w-[28rem] 
-            ml-40">
+            <div
+              className="relative group overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 w-[28rem] 
+            ml-40"
+            >
               <section className="section table-section">
                 <h2>Table</h2>
                 <div className="flex flex-col overflow-x-hidden">
@@ -136,23 +163,52 @@ const Main = () => {
                         <table className="min-w-full overflow-hidden text-start text-sm font-light text-surface dark:text-white">
                           <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
                             <tr>
-                              <th scope="col" className="px-6 py-4">#</th>
-                              <th scope="col" className="px-6 py-4">Heading</th>
-                              <th scope="col" className="px-6 py-4">Heading</th>
-                              <th scope="col" className="px-6 py-4">Heading</th>
-                              <th scope="col" className="px-6 py-4">Heading</th>
-                              <th scope="col" className="px-6 py-4">Heading</th>
+                              <th scope="col" className="px-6 py-4">
+                                #
+                              </th>
+                              <th scope="col" className="px-6 py-4">
+                                Heading
+                              </th>
+                              <th scope="col" className="px-6 py-4">
+                                Heading
+                              </th>
+                              <th scope="col" className="px-6 py-4">
+                                Heading
+                              </th>
+                              <th scope="col" className="px-6 py-4">
+                                Heading
+                              </th>
+                              <th scope="col" className="px-6 py-4">
+                                Heading
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
                             {data.map((item, index) => (
-                              <tr key={item.id} className={`${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'} border-b border-neutral-200 dark:border-white/10`}>
-                                <td className="whitespace-nowrap px-6 py-4 font-medium">{item.id}</td>
-                                <td className="whitespace-nowrap px-6 py-4">{item.heading1}</td>
-                                <td className="whitespace-nowrap px-6 py-4">{item.heading2}</td>
-                                <td className="whitespace-nowrap px-6 py-4">{item.heading3}</td>
-                                <td className="whitespace-nowrap px-6 py-4">{item.heading4}</td>
-                                <td className="whitespace-nowrap px-6 py-4">{item.heading5}</td>
+                              <tr
+                                key={item.id}
+                                className={`${
+                                  index % 2 === 0 ? "bg-gray-100" : "bg-white"
+                                } border-b border-neutral-200 dark:border-white/10`}
+                              >
+                                <td className="whitespace-nowrap px-6 py-4 font-medium">
+                                  {item.id}
+                                </td>
+                                <td className="whitespace-nowrap px-6 py-4">
+                                  {item.heading1}
+                                </td>
+                                <td className="whitespace-nowrap px-6 py-4">
+                                  {item.heading2}
+                                </td>
+                                <td className="whitespace-nowrap px-6 py-4">
+                                  {item.heading3}
+                                </td>
+                                <td className="whitespace-nowrap px-6 py-4">
+                                  {item.heading4}
+                                </td>
+                                <td className="whitespace-nowrap px-6 py-4">
+                                  {item.heading5}
+                                </td>
                               </tr>
                             ))}
                           </tbody>

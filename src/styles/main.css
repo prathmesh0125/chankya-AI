@@ -81,7 +81,7 @@
   width: 100%;
   max-width: 900px;
   /* padding: 0px 20px; */
-  margin:4rem auto;
+  margin: 4rem auto;
   margin-bottom: 0;
 }
 .search-box {
@@ -95,7 +95,6 @@
   padding: 8px 26px;
   border-radius: 13px;
   margin-bottom: 20px;
-
 }
 .search-box i {
   width: 40px;
@@ -129,31 +128,34 @@
 } */
 .result {
   padding: 0px 5%;
-  height: 82vh;
+  /* height: 82vh; */
   /* width: 51rem; */
   overflow-y: scroll;
   /* hover:-translate-y-2 */
   /* margin-bottom: -4rem; */
 }
 /* card group overflow-y-scroll rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out  */
-.result::-webkit-scrollbar {
-  display: none;
-}
-
-
 /* .result::-webkit-scrollbar {
+  display: none;
+} */
+
+.result::-webkit-scrollbar {
+  width: 8px; /* Adjust the width as needed */
+  /* height: 5px; Adjust the height as needed */
   background-color: transparent;
 }
+
 .result::-webkit-scrollbar-thumb {
-  background: rgb(222, 222, 232);
-    border-radius:100px;
-} */
+  background: rgb(81, 81, 83);
+  border-radius: 10%;
+}
 .result-title {
   margin: 40px 0px;
   display: flex;
   align-items: start;
   gap: 20px;
-  padding: 14px;
+  line-height: 3rem;
+  padding: 5px;
   background-color: #e7ebf0;
 }
 .result img {
@@ -201,7 +203,7 @@
   color: black;
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width: 700px) {
   .main .card p {
     font-size: 14px;
   }
@@ -218,7 +220,7 @@
     font-size: 17px;
     line-height: normal;
   }
-  .greet p{
+  .greet p {
     font-size: 2rem;
   }
   .main .greet {
@@ -227,21 +229,17 @@
     color: #c4c7c5;
     font-weight: 500;
     padding: 15px;
+  }
 }
-
-}
-
-
 
 .Main-page {
   margin-top: -3rem;
   margin-bottom: -3rem;
 }
 
-.graph-container{
+.graph-container {
   height: 13rem;
 }
-
 
 .related-questions-container {
   max-width: 100%;
@@ -269,6 +267,6 @@
   padding: 1.05rem 1rem;
 }
 
-.table-section h2{
+.table-section h2 {
   margin-bottom: -1.4rem;
 }
