@@ -6,6 +6,8 @@ import { IoSendSharp } from "react-icons/io5";
 import { Context } from "../Context";
 import { VictoryChart, VictoryLine, VictoryAxis } from "victory";
 import Resources from "../AI/Resources";
+import { FaCopy } from "react-icons/fa";
+import { MdOutlineContentCopy } from "react-icons/md";
 const Main = () => {
   const {
     onSent,
@@ -60,6 +62,8 @@ const Main = () => {
     // Add more data as needed
   ]);
 
+  const [tooltipText, setTooltipText] = useState("Copy");
+  const [showTooltip, setShowTooltip] = useState(false);
   useEffect(() => {
     if (resultData) {
       // Update related questions once resultData is available
@@ -99,6 +103,28 @@ const Main = () => {
   // --light-gray: #f0f0f0;
   // --gray: #808080;
   // --dark-gray: #555;
+
+  const handleCopyClick = async () => {
+    try {
+      // Copy the text to the clipboard
+      await navigator.clipboard.writeText(
+        document.querySelector(".result-data p").innerText
+      );
+      setTooltipText("Copied");
+    } catch (error) {
+      console.error("Failed to copy text:", error);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    setShowTooltip(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowTooltip(false);
+    setTooltipText("Copy");
+  };
+
   return (
     <div className="main bg-[#f0f0f0]">
       {/* <div className="nav">
@@ -128,7 +154,7 @@ const Main = () => {
         ) : (
           <section className="Main-page grid grid-cols-1  md:grid-cols-2  md:grid-rows-2 gap-8 p-2 md:p-3">
             {/* Card 1 */}
-            <div className="result md:row-start-1 md:row-end-3 w-[46rem]  bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out ">
+            {/* <div className="result md:row-start-1 md:row-end-3 w-[46rem]  bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out ">
               <div className="result-title">
                 <img src="images/user.jpg" alt="" />
                 <p>{recentPrompt}</p>
@@ -161,7 +187,59 @@ const Main = () => {
                 )}
               </div>
              
+            </div> */}
+
+            <div className="result md:row-start-1 md:row-end-3 w-[46rem] bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out">
+      
+              <div className="result-title">
+                <img src="images/user.jpg" alt="" />
+                <p>{recentPrompt}</p>
+              </div>
+              {loading ? (
+                ""
+              ) : (
+                <div>
+                  {showResult && (
+                    <div>
+                      <p className="-mt-3 mb-1 text-black text-lg">Resource </p>
+                      <Resources />
+                    </div>
+                  )}
+                </div>
+              )}
+              <div className="result-data relative">
+                <img src="images/chankya.png" alt="" />
+                {loading ? (
+                  <div className="loader">
+                    <hr />
+                    <hr />
+                    <hr />
+                  </div>
+                ) : (
+                  <div>
+                    <div>
+                      <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+                    </div>
+                    {showTooltip && (
+                      <div className="tooltip absolute bg-gray-700 text-white px-2 py-1 rounded right-1 -top-5">
+                        {" "}
+                        {tooltipText}{" "}
+                      </div>
+                    )}
+                    <MdOutlineContentCopy
+                      className="copy-icon absolute right-3 top-3"
+                      onClick={handleCopyClick}
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    />
+                    {/* Other content */}
+
+                    {/* Other content */}
+                  </div>
+                )}
+              </div>
             </div>
+
             {/* Card 2 */}
             <div
               className="relative group overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 w-[28rem] 
