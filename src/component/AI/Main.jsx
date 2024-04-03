@@ -133,6 +133,18 @@ const Main = () => {
                 <img src="images/user.jpg" alt="" />
                 <p>{recentPrompt}</p>
               </div>
+              {loading ? (
+                  ""
+                ) : (
+                  <div>
+                    {showResult && 
+                    <div>
+                    <p className="-mt-3 mb-1 text-black text-lg">Resource </p>
+                    <Resources />
+                    </div>
+                    }
+                  </div>
+                )}
               <div className="result-data">
                 <img src="images/chankya.png" alt="" />
                 {loading ? (
@@ -142,12 +154,13 @@ const Main = () => {
                     <hr />
                   </div>
                 ) : (
+                  
                   <div>
                     <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
-                    {/* <Resources /> */}
                   </div>
                 )}
               </div>
+             
             </div>
             {/* Card 2 */}
             <div

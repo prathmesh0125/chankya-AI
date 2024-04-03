@@ -128,7 +128,7 @@
 } */
 .result {
   padding: 0px 5%;
-  /* height: 82vh; */
+ max-height: 82vh;
   /* width: 51rem; */
   overflow-y: scroll;
   /* hover:-translate-y-2 */
@@ -150,7 +150,7 @@
   border-radius: 10%;
 }
 .result-title {
-  margin: 40px 0px;
+  margin: 40px 0px 20px 0px;
   display: flex;
   align-items: start;
   gap: 20px;
