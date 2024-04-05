@@ -189,7 +189,7 @@ const Main = () => {
                 <div>
                   {showResult && (
                     <div>
-                      <p className="-mt-3 mb-1 text-black text-lg">Resource </p>
+                      <p className="-mt-6 mb-1 text-black text-lg">Resource </p>
                       <Resources />
                     </div>
                   )}
@@ -242,7 +242,7 @@ const Main = () => {
   <div className="related-questions-container">
     {loading ? (
       // Loader component or animation goes here
-      <div className="loader"></div>
+      <div className="loader  text-red">loading.... </div>
     ) : (
       <ul className="px-5">
         {relatedQuestions.map((question, index) => (

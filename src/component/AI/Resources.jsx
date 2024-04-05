@@ -4,19 +4,19 @@ const Resources = () => {
   // Array of resource data
   const resourcesData = [
     {
-      title: 'Customer satisfaction',
+      title: 'resource 1',
       comment: "The product "
     },
     {
-      title: ' resource title',
+      title: ' resource 2',
       comment: "The product "
     },
     {
-      title: ' resource title',
+      title: ' resource 3',
       comment: "The product"
     },
     {
-      title: 'resource title',
+      title: 'resource 4',
       comment: "The product"
     },
     // Add more resource data as needed
