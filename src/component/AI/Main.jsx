@@ -72,9 +72,39 @@ const Main = () => {
         "How does AI work?",
         "What are the applications of AI?",
       ];
-      setRelatedQuestions(dummyRelatedQuestions);
+      setTimeout(() => {
+        setRelatedQuestions(dummyRelatedQuestions);
+      }, 3000); // Add a delay of 2 seconds before setting related questions
     }
   }, [resultData]);
+
+  // useEffect(() => {
+  //   const generateRelatedQuestions = (prompt) => {
+  //     // Here you can implement your logic to generate related questions
+  //     // This could be done using an NLP model or predefined rules
+  //     // For demonstration, I'm using a simple rule-based approach
+  //     const relatedQuestions = [];
+  
+  //     // Example rule-based generation
+  //     relatedQuestions.push(`What is ${prompt}?`);
+  //     relatedQuestions.push(`How does ${prompt} work?`);
+  //     // Add more rules or customize as needed
+  
+  //     // Limit the number of questions to 3
+  //     return relatedQuestions.slice(0, 3);
+  //   };
+  
+  //   if (resultData && recentPrompt) {
+  //     // Call the function to generate related questions based on the recent prompt
+  //     const promptRelatedQuestions = generateRelatedQuestions(recentPrompt);
+  
+  //     // Delay before setting related questions
+  //     setTimeout(() => {
+  //       setRelatedQuestions(promptRelatedQuestions);
+  //     }, 2000); // Add a delay of 2 seconds before setting related questions
+  //   }
+  // }, [resultData, recentPrompt]);
+  
 
   const handleSearch = () => {
     // Dummy graph data
@@ -95,14 +125,7 @@ const Main = () => {
     ];
     setTableData(dummyTableData);
   };
-  // --primary-color: #6366f1;
-  // --accent-color: #3f83f8;
-  // --text-color: #333333;
-  // --link-color: #2563eb;
-  // --background-color: #ffffff;
-  // --light-gray: #f0f0f0;
-  // --gray: #808080;
-  // --dark-gray: #555;
+ 
 
   const handleCopyClick = async () => {
     try {
@@ -153,44 +176,9 @@ const Main = () => {
           </>
         ) : (
           <section className="Main-page grid grid-cols-1  md:grid-cols-2  md:grid-rows-2 gap-8 p-2 md:p-3">
-            {/* Card 1 */}
-            {/* <div className="result md:row-start-1 md:row-end-3 w-[46rem]  bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out ">
-              <div className="result-title">
-                <img src="images/user.jpg" alt="" />
-                <p>{recentPrompt}</p>
-              </div>
-              {loading ? (
-                  ""
-                ) : (
-                  <div>
-                    {showResult && 
-                    <div>
-                    <p className="-mt-3 mb-1 text-black text-lg">Resource </p>
-                    <Resources />
-                    </div>
-                    }
-                  </div>
-                )}
-              <div className="result-data">
-                <img src="images/chankya.png" alt="" />
-                {loading ? (
-                  <div className="loader">
-                    <hr />
-                    <hr />
-                    <hr />
-                  </div>
-                ) : (
-                  
-                  <div>
-                    <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
-                  </div>
-                )}
-              </div>
-             
-            </div> */}
+          
 
             <div className="result md:row-start-1 md:row-end-3 w-[46rem] bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out">
-      
               <div className="result-title">
                 <img src="images/user.jpg" alt="" />
                 <p>{recentPrompt}</p>
@@ -220,14 +208,18 @@ const Main = () => {
                     <div>
                       <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
                     </div>
+                    <div>
+                      
+                    </div>
                     {showTooltip && (
                       <div className="tooltip absolute bg-gray-700 text-white px-2 py-1 rounded right-1 -top-5">
                         {" "}
                         {tooltipText}{" "}
                       </div>
+                      
                     )}
                     <MdOutlineContentCopy
-                      className="copy-icon absolute right-3 top-3"
+                      className="copy-icon absolute right-3 top-2 "
                       onClick={handleCopyClick}
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
@@ -236,8 +228,38 @@ const Main = () => {
 
                     {/* Other content */}
                   </div>
+                  
                 )}
+                
               </div>
+              {
+  loading ? (
+    ""
+  ) : (
+    <div className="relative overflow-hidden rounded-lg  bg-white mt-2 shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
+      <div className="section related-questions-section">
+  <h2>Related Questions</h2>
+  <div className="related-questions-container">
+    {loading ? (
+      // Loader component or animation goes here
+      <div className="loader"></div>
+    ) : (
+      <ul className="px-5">
+        {relatedQuestions.map((question, index) => (
+          <li
+            className="border-b-2 border-zinc-600 px-4 mt-2"
+            key={index}
+          >
+            {question}
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>
+    </div>
+  )
+}
             </div>
 
             {/* Card 2 */}
@@ -310,24 +332,7 @@ const Main = () => {
                 </div>
               </section>
             </div>
-            {/* Card 3 */}
-            {/* <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
-              <div className="section related-questions-section">
-                <h2>Related Questions</h2>
-                <div className="related-questions-container">
-                  <ul className="px-5">
-                    {relatedQuestions.map((question, index) => (
-                      <li
-                        className="border-b-2 border-zinc-600 px-4 mt-2"
-                        key={index}
-                      >
-                        {question}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div> */}
+
             {/* Card 4 */}
             <div className="relative mt-auto group overflow-hidden  bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 w-[28rem] ml-40">
               <section className="section graph-section">
