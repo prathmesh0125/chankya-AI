@@ -219,7 +219,7 @@ const Main = () => {
                       
                     )}
                     <MdOutlineContentCopy
-                      className="copy-icon absolute right-3 top-2 "
+                      className="copy-icon absolute right-3 top-2 cursor-pointer "
                       onClick={handleCopyClick}
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
