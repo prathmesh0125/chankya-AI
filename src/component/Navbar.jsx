@@ -27,8 +27,8 @@ const Navbar = () => {
     <div>
       <nav>
         <div className="logo">
-          <img className="brandname" src="images/chankya.png" alt="" />
-          <span className="logo-text"> Finalyst</span>
+          <img className="brandname" src="images/finalyst.jpeg" alt="" />
+          {/* <span className="logo-text"> Finalyst</span> */}
         </div>
         <input
           type="checkbox"
