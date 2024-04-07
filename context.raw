@@ -27,43 +27,35 @@ const ContextProvider = (props) => {
     setLoading(true);
     setShowResult(true);
     let response;
-  
     if (prompt !== undefined) {
       response = await runChat(prompt);
       setPrevoisPrompt((prev) => [...prev, prompt]);
       setRecentPrompt(prompt);
     } else {
-      prompt = input; // Assign input to prompt if it's undefined
       setPrevoisPrompt((prev) => [...prev, input]);
       setRecentPrompt(input);
       response = await runChat(input);
     }
-  
-    // Format response for rendering
-    let formattedResponse = response
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold text between **
-      .replace(/\*(.*?)\*/g, '<em>$1</em>') // Italicize text between *
-      .replace(/\n/g, '<br/>') // Replace newline characters with <br/>
-      .replace(/(?:^|\n)(?:\d+\.)(.*?)(?=\n|$)/g, '<li>$1</li>'); // Replace numbered list items with <li> tags
-  
-    // Wrap the list items with <ol> tags
-    formattedResponse = `<ol>${formattedResponse}</ol>`;
-  
-    // setResultData(formattedResponse);
-  
-    // Split formatted response into words
-    let words = formattedResponse.split(/\s+/);
-  
-    // Apply delay to each word
-    for (let i = 0; i < words.length; i++) {
-      const nextword = words[i];
+
+    let responseArray = response.split("**");
+    let newArray = "";
+    for (let i = 0; i < responseArray.length; i++) {
+      if (i === 0 || i % 2 !== 1) {
+        newArray += responseArray[i];
+      } else {
+        newArray +=  responseArray[i] ;
+      }
+    }
+    let response2 = newArray.split("*").join("</br>");
+    let newresponseArray = response2.split(" ");
+    for (let i = 0; i < newresponseArray.length; i++) {
+      const nextword = newresponseArray[i];
       delayPara(i, nextword + " ");
     }
-  
     setLoading(false);
     setInput("");
   };
-  
+
   const contextValue = {
     prevoisPrompt,
     setPrevoisPrompt,
