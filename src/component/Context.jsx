@@ -53,7 +53,6 @@ const ContextProvider = (props) => {
   
     // Split formatted response into words
     let words = formattedResponse.split(/\s+/);
-  
     // Apply delay to each word
     for (let i = 0; i < words.length; i++) {
       const nextword = words[i];
