@@ -147,15 +147,24 @@ const Main = () => {
     setShowTooltip(false);
     setTooltipText("Copy");
   };
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent the default behavior of submitting a form
+      onSent();
+      handleSearch();
+    }
+  };
 
   return (
     <div className="main bg-[#f0f0f0]">
-      {/* <div className="nav">
-        <p>Finalyst</p>
-      </div> */}
-      <div className="main-container mt-16 ">
+      
+      <div className="main-container ">
         {!showResult ? (
           <>
+          <div className="nav text-">
+          <img src="images/finalyst.jpeg" alt="" />
+         
+      </div>
             <div className="greet">
               <p>
                 <span>Hello, Vaibhav.</span>
@@ -175,7 +184,7 @@ const Main = () => {
             </div>
           </>
         ) : (
-          <section className="Main-page grid grid-cols-1  md:grid-cols-2  md:grid-rows-2 gap-8 p-2 md:p-3">
+          <section className="Main-page grid grid-cols-1  md:grid-cols-2 mt-4 md:grid-rows-2 gap-8 p-2 md:p-3">
           
 
             <div className="result md:row-start-1 md:row-end-3 w-[46rem] bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out">
@@ -189,7 +198,7 @@ const Main = () => {
                 <div>
                   {showResult && (
                     <div>
-                      <p className="-mt-6 mb-1 text-black text-lg">Resource </p>
+                      <p className="-mt-6 mb-1 text-black text-lg">Sources </p>
                       <Resources />
                     </div>
                   )}
@@ -358,6 +367,7 @@ const Main = () => {
               name=""
               id=""
               placeholder="Enter a prompt here"
+                // onKeyPress={handleKeyPress}
             />
             <div>
               {input ? (

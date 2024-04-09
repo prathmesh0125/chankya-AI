@@ -12,14 +12,18 @@
   align-items: center;
   justify-content: space-between;
   font-size: 22px;
-  padding: 20px;
-  color: #585858;
+  margin: 1rem -1rem 1rem -1rem;
   font-family: outfit;
 }
 .nav img {
-  width: 4rem;
-  border-radius: 50%;
-  mix-blend-mode: darken;
+  /* width: 4rem; */
+  mix-blend-mode: exclusion;
+  width: 13.5rem;
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 3.5rem;
+  mix-blend-mode: difference;
+
 }
 
 .main-container {
@@ -28,7 +32,7 @@
   margin: auto;
 }
 .main .greet {
-  margin: 50px 0px;
+  margin: 25px 0px;
   font-size: 56px;
   color: #c4c7c5;
   font-weight: 500;
