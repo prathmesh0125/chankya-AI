@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+
 
 @tailwind base;
 @tailwind components;
@@ -7,12 +10,7 @@ body::-webkit-scrollbar {
   background-color: transparent;
 }
 body::-webkit-scrollbar-thumb {
-  background: rgb(251, 63, 110);
-  /* background: radial-gradient(
-    circle,
-    rgba(192, 63, 251, 1) 0%,
-    rgba(217, 14, 55, 1) 100%
-    ); */
+  background: rgb(42, 41, 41);
     border-radius:20px;
 }
 #root{

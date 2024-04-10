@@ -8,6 +8,7 @@ import { VictoryChart, VictoryLine, VictoryAxis } from "victory";
 import Resources from "../AI/Resources";
 import { FaCopy } from "react-icons/fa";
 import { MdOutlineContentCopy } from "react-icons/md";
+import { HiMenuAlt2 } from "react-icons/hi";
 const Main = () => {
   const {
     onSent,
@@ -158,13 +159,14 @@ const Main = () => {
   return (
     <div className="main bg-[#f0f0f0]">
       
-      <div className="main-container ">
+      <div className="main-container mt-4 ">
         {!showResult ? (
           <>
-          <div className="nav text-">
-          <img src="images/finalyst.jpeg" alt="" />
-         
+             <div className="nav">
+        <p>Finalyst</p>
       </div>
+          {/* <img src="images/finalyst.jpeg" alt="" /> */}
+         
             <div className="greet">
               <p>
                 <span>Hello, Vaibhav.</span>
@@ -185,7 +187,6 @@ const Main = () => {
           </>
         ) : (
           <section className="Main-page grid grid-cols-1  md:grid-cols-2 mt-4 md:grid-rows-2 gap-8 p-2 md:p-3">
-          
 
             <div className="result md:row-start-1 md:row-end-3 w-[46rem] bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out">
               <div className="result-title">
@@ -198,7 +199,7 @@ const Main = () => {
                 <div>
                   {showResult && (
                     <div>
-                      <p className="-mt-6 mb-1 text-black text-lg">Sources </p>
+                      <p className="-mt-6 mb-1 text-black text-lg flex  items-center gap-1"> <i className="text-2xl"><HiMenuAlt2/></i>Sources </p>
                       <Resources />
                     </div>
                   )}
@@ -367,7 +368,7 @@ const Main = () => {
               name=""
               id=""
               placeholder="Enter a prompt here"
-                // onKeyPress={handleKeyPress}
+                onKeyPress={handleKeyPress}
             />
             <div>
               {input ? (

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 * {
-  font-family: Outfit;
+  font-family: 'Poppins';
+  font-weight: 500;
 }
 .main {
   flex: 1;
@@ -151,7 +152,7 @@
   border-radius: 10%;
 }
 .result-title {
-  margin: 40px 0px 30px 0px;
+  margin: 22px 0px 32px 0px;
   display: flex;
   align-items: start;
   gap: 20px;
@@ -172,6 +173,8 @@
   gap: 20px;
   padding: 14px;
   background-color: #f9fafa30;
+  font-family: "Roboto Slab", serif;
+
 }
 .loader {
   width: 100%;
@@ -202,6 +205,14 @@
   font-weight: 300px;
   line-height: 2;
   color: black;
+  font-family: "Roboto Slab", serif;
+
+}
+.result-data p>ol {
+ 
+ font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 15px;
 }
 
 @media screen and (max-width: 700px) {

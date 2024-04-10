@@ -66,7 +66,7 @@ const Navbar = () => {
               Pricing
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link
               className={activeItem === "login" ? "active" : ""}
               to="/login"
@@ -74,7 +74,7 @@ const Navbar = () => {
             >
               Login
             </Link>
-          </li>
+          </li> */}
         
           <li>
             <Link
