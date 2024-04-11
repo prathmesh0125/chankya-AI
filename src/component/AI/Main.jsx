@@ -9,6 +9,10 @@ import Resources from "../AI/Resources";
 import { FaCopy } from "react-icons/fa";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
+import { HiSpeakerWave } from "react-icons/hi2";
+// import { GiStarProminences } from "react-icons/gi";
+import { GiMoebiusStar } from "react-icons/gi";
+import { FaPlus } from "react-icons/fa6";
 const Main = () => {
   const {
     onSent,
@@ -63,7 +67,7 @@ const Main = () => {
     // Add more data as needed
   ]);
 
-  const [tooltipText, setTooltipText] = useState("Copy");
+  const [tooltipText, setTooltipText] = useState("Speak Loud");
   const [showTooltip, setShowTooltip] = useState(false);
   useEffect(() => {
     if (resultData) {
@@ -85,27 +89,26 @@ const Main = () => {
   //     // This could be done using an NLP model or predefined rules
   //     // For demonstration, I'm using a simple rule-based approach
   //     const relatedQuestions = [];
-  
+
   //     // Example rule-based generation
   //     relatedQuestions.push(`What is ${prompt}?`);
   //     relatedQuestions.push(`How does ${prompt} work?`);
   //     // Add more rules or customize as needed
-  
+
   //     // Limit the number of questions to 3
   //     return relatedQuestions.slice(0, 3);
   //   };
-  
+
   //   if (resultData && recentPrompt) {
   //     // Call the function to generate related questions based on the recent prompt
   //     const promptRelatedQuestions = generateRelatedQuestions(recentPrompt);
-  
+
   //     // Delay before setting related questions
   //     setTimeout(() => {
   //       setRelatedQuestions(promptRelatedQuestions);
   //     }, 2000); // Add a delay of 2 seconds before setting related questions
   //   }
   // }, [resultData, recentPrompt]);
-  
 
   const handleSearch = () => {
     // Dummy graph data
@@ -126,7 +129,6 @@ const Main = () => {
     ];
     setTableData(dummyTableData);
   };
- 
 
   const handleCopyClick = async () => {
     try {
@@ -146,10 +148,10 @@ const Main = () => {
 
   const handleMouseLeave = () => {
     setShowTooltip(false);
-    setTooltipText("Copy");
+    setTooltipText("Speak Loud");
   };
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       event.preventDefault(); // Prevent the default behavior of submitting a form
       onSent();
       handleSearch();
@@ -158,15 +160,14 @@ const Main = () => {
 
   return (
     <div className="main bg-[#f0f0f0]">
-      
       <div className="main-container mt-4 ">
         {!showResult ? (
           <>
-             <div className="nav">
-        <p>Finalyst</p>
-      </div>
-          {/* <img src="images/finalyst.jpeg" alt="" /> */}
-         
+            <div className="nav">
+              <p>Finalyst</p>
+            </div>
+            {/* <img src="images/finalyst.jpeg" alt="" /> */}
+
             <div className="greet">
               <p>
                 <span>Hello, Vaibhav.</span>
@@ -187,7 +188,6 @@ const Main = () => {
           </>
         ) : (
           <section className="Main-page grid grid-cols-1  md:grid-cols-2 mt-4 md:grid-rows-2 gap-8 p-2 md:p-3">
-
             <div className="result md:row-start-1 md:row-end-3 w-[46rem] bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out">
               <div className="result-title">
                 <img src="images/user.jpg" alt="" />
@@ -199,14 +199,26 @@ const Main = () => {
                 <div>
                   {showResult && (
                     <div>
-                      <p className="-mt-6 mb-1 text-black text-lg flex  items-center gap-1"> <i className="text-2xl"><HiMenuAlt2/></i>Sources </p>
+                      <p className="-mt-6 mb-3  text-black text-lg flex  items-center gap-1">
+                        {" "}
+                        <i className="text-2xl">
+                          <HiMenuAlt2 />
+                        </i>
+                        Sources{" "}
+                      </p>
                       <Resources />
                     </div>
                   )}
                 </div>
               )}
               <div className="result-data relative">
-                <img src="images/chankya.png" alt="" />
+                {/* <img src="images/chankya.png" alt="" /> */}
+                <div>
+                  <i>
+                    <GiMoebiusStar className="text-3xl" />
+                  </i>
+                  {/* {loading ? "" : <p>Answer</p>} */}
+                </div>
                 {loading ? (
                   <div className="loader">
                     <hr />
@@ -216,60 +228,60 @@ const Main = () => {
                 ) : (
                   <div>
                     <div>
+                      <h1 className="text-lg font-medium">Answer</h1>
+                      {/* <br/> */}
                       <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
                     </div>
-                    <div>
-                      
-                    </div>
+                    <div></div>
                     {showTooltip && (
-                      <div className="tooltip absolute bg-gray-700 text-white px-2 py-1 rounded right-1 -top-5">
+                      <div className="tooltip absolute bg-white text-gray-500 px-3 py-0 rounded  -right-6 -top-4">
                         {" "}
                         {tooltipText}{" "}
                       </div>
-                      
                     )}
-                    <MdOutlineContentCopy
+                    {/* <MdOutlineContentCopy
                       className="copy-icon absolute right-3 top-2 cursor-pointer "
                       onClick={handleCopyClick}
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                    />
+                    /> */}
+                    <HiSpeakerWave className="copy-icon absolute right-3 top-3 cursor-pointer text-2xl"  onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}/>
                     {/* Other content */}
 
                     {/* Other content */}
                   </div>
-                  
                 )}
-                
               </div>
-              {
-  loading ? (
-    ""
-  ) : (
-    <div className="relative overflow-hidden rounded-lg  bg-white mt-2 shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
-      <div className="section related-questions-section">
-  <h2>Related Questions</h2>
-  <div className="related-questions-container">
-    {loading ? (
-      // Loader component or animation goes here
-      <div className="loader  text-red">loading.... </div>
-    ) : (
-      <ul className="px-5">
-        {relatedQuestions.map((question, index) => (
-          <li
-            className="border-b-2 border-zinc-600 px-4 mt-2"
-            key={index}
-          >
-            {question}
-          </li>
-        ))}
-      </ul>
-    )}
-  </div>
-</div>
-    </div>
-  )
-}
+              {loading ? (
+                ""
+              ) : (
+                <div className="relative overflow-hidden rounded-lg  bg-white mt-2 shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out mb-5">
+                  <div className="section related-questions-section">
+                    <h2>Related Questions</h2>
+                    <div className="related-questions-container">
+                      {loading ? (
+                        // Loader component or animation goes here
+                        <div className="loader  text-red">loading.... </div>
+                      ) : (
+                        <ul className="px-5 ">
+                          {relatedQuestions.map((question, index) => (
+                            <li
+                              className="border-b-2 border-zinc-600 py-1 mt-2  flex justify-between hover:bg-slate-300 transition-transform duration-3000 ease-in-out"
+                              key={index}
+                            >
+                              {question}
+                              <i>
+                                <FaPlus className="cursor-pointer"/>
+                              </i>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Card 2 */}
@@ -368,9 +380,15 @@ const Main = () => {
               name=""
               id=""
               placeholder="Enter a prompt here"
-                onKeyPress={handleKeyPress}
+              onKeyPress={handleKeyPress}
             />
             <div>
+              <i>
+                <MdOutlineAddPhotoAlternate />
+              </i>
+              <i>
+                <FaMicrophone />
+              </i>
               {input ? (
                 <i
                   onClick={() => {
