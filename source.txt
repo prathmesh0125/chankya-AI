@@ -1,0 +1,76 @@
+import React, { useState } from 'react';
+
+const Resources = () => {
+  // Array of resource data
+  const resourcesData = [
+    {
+      title: 'resource 1',
+      comment: "The product "
+    },
+    {
+      title: ' resource 2',
+      comment: "The product "
+    },
+    {
+      title: ' resource 3',
+      comment: "The product"
+    },
+    {
+      title: 'resource 4',
+      comment: "The product"
+    },
+    {
+      title: 'resource 4',
+      comment: "The product"
+    },
+    {
+      title: 'resource 4',
+      comment: "The product"
+    },
+    // Add more resource data as needed
+  ];
+
+  const [showAllResources, setShowAllResources] = useState(false);
+
+  const handleMoreClick = () => {
+    setShowAllResources(true);
+  };
+
+  return (
+    <div className="mx-auto max-w-5xl grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-9 px-4 md:px-6">
+      {resourcesData.slice(0, 3).map((resource, index) => (
+        <div key={index} className="border rounded-lg flex-1 overflow-hidden bg-white">
+          <div className="p-4 grid gap-2">
+            <h4 className="text-sm font-semibold leading-none">{resource.title}</h4>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{resource.comment}</p>
+          </div>
+        </div>
+      ))}
+      {/* Render the "More" option */}
+      {resourcesData.length > 3 && !showAllResources && (
+        <div className="border rounded-lg flex-1 overflow-hidden bg-white">
+          <div className="p-4 grid gap-2">
+            <button className="text-sm font-semibold leading-none text-blue-500" onClick={handleMoreClick}>More</button>
+          </div>
+        </div>
+      )}
+      {/* Render the modal if "More" option is clicked */}
+      {showAllResources && (
+        <div className="fixed top-0 left-0 z-50 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white w-72 p-4 rounded-lg max-w-md">
+            <h2 className="text-lg font-semibold mb-4">All Resources</h2>
+            {resourcesData.map((resource, index) => (
+              <div key={index} className="border-b py-2">
+                <h4 className="text-sm font-semibold leading-none">{resource.title}</h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{resource.comment}</p>
+              </div>
+            ))}
+            <button className="mt-4 text-sm font-semibold leading-none text-blue-500" onClick={() => setShowAllResources(false)}>Close</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Resources;

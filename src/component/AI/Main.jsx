@@ -13,6 +13,7 @@ import { HiSpeakerWave } from "react-icons/hi2";
 // import { GiStarProminences } from "react-icons/gi";
 import { GiMoebiusStar } from "react-icons/gi";
 import { FaPlus } from "react-icons/fa6";
+import { RiStackLine } from "react-icons/ri";
 const Main = () => {
   const {
     onSent,
@@ -39,6 +40,7 @@ const Main = () => {
     "Provide an overview of Microsoft's business.",
     "Provide an overview of Microsoft's business.",
   ]);
+  
   const [data, setData] = useState([
     {
       id: 1,
@@ -258,7 +260,8 @@ const Main = () => {
               ) : (
                 <div className="relative overflow-hidden rounded-lg  bg-white mt-2 shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out mb-5">
                   <div className="section related-questions-section">
-                    <h2>Related Questions</h2>
+                    <h2 className="flex gap-2"><i className="text-2xl"><RiStackLine/></i>Related Questions</h2>
+
                     <div className="related-questions-container">
                       {loading ? (
                         // Loader component or animation goes here
