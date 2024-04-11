@@ -67,3 +67,11 @@
           //   </div>
           // </div>
           // <V/>
+
+          let formattedResponse = response
+   .replace(/\*\*(.*?)\*\*/g, '<span style="font-weight: 600;">$1</span>') 
+   .replace(/\*(.*?)\*/g, '<em>$1</em>') 
+   .replace(/\n/g, '<br/>') // Replace newline characters with <br/>
+   .replace(/(?:^|\n)\s*(\d+\.)(.*?)(?=\n|$)/g, '<li style="margin-left: 20px;">$1 $2</li>'); 
+
+ formattedResponse = `<ul style="list-style: none;">${formattedResponse}</ul>`; 

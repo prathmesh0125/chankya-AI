@@ -40,24 +40,22 @@ const ContextProvider = (props) => {
     }
   
     // Format response for rendering
-    let formattedResponse = response
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold text between **
-      .replace(/\*(.*?)\*/g, '<em>$1</em>') // Italicize text between *
-      .replace(/\n/g, '<br/>') // Replace newline characters with <br/>
-      .replace(/(?:^|\n)(?:\d+\.)(.*?)(?=\n|$)/g, '<li>$1</li>'); // Replace numbered list items with <li> tags
-  
-    // Wrap the list items with <ol> tags
-    formattedResponse = `<ol>${formattedResponse}</ol>`;
-  
-    // setResultData(formattedResponse);
-  
-    // Split formatted response into words
-    let words = formattedResponse.split(/\s+/);
-    // Apply delay to each word
-    for (let i = 0; i < words.length; i++) {
-      const nextword = words[i];
-      delayPara(i, nextword + " ");
-    }
+   // Format the response for rendering
+   let formattedResponse = response
+    .replace(/\*\*(.*?)\*\*/g, '<span style="font-weight: 600;">$1</span>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/\n/g, '<br/>') // Replace newline characters with <br/>
+    .replace(/\* /g, '</li><ul><li>') // New bullet point for each main point
+    .replace(/\*\* /g, '</li><ul><li><span style="font-weight: 400;">') // New sub-bullet point for each main point
+    .replace(/(?:^|\n)\s*(\d+\.)(.*?)(?=\n|$)/g, '<li style="margin-left: 20px;">$1 $2</li>');
+
+formattedResponse = `<ul style="list-style: none;">${formattedResponse}</ul>`;
+
+let words = formattedResponse.split(/\s+/);
+for (let i = 0; i < words.length; i++) {
+    const nextword = words[i];
+    delayPara(i, nextword + " ");
+}
   
     setLoading(false);
     setInput("");
