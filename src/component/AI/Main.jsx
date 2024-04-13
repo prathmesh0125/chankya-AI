@@ -189,8 +189,8 @@ const Main = () => {
             </div>
           </>
         ) : (
-          <section className="Main-page grid grid-cols-1  md:grid-cols-2 mt-4 md:grid-rows-2 gap-8 p-2 md:p-3">
-            <div className="result md:row-start-1 md:row-end-3 w-[46rem] bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out">
+          <section className="Main-page grid md:grid-cols-1  lg:grid-cols-2 mt-4 lg:grid-rows-2 gap-8 p-2 md:p-3">
+            <div className="result md:row-start-1 lg:w-[42rem] ml-1 xl:w-[48rem] md:row-end-3 w-[46rem] bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out">
               <div className="result-title">
                 <img src="images/user.jpg" alt="" />
                 <p>{recentPrompt}</p>
@@ -289,10 +289,9 @@ const Main = () => {
 
             {/* Card 2 */}
             <div
-              className="relative group overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 w-[28rem] 
-            ml-40"
+              className=" table-section relative group overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 lg:w-[24rem] xl:w-[28rem]    lg:ml-40"
             >
-              <section className="section table-section">
+              <section className="section ">
                 <h2>Table</h2>
                 <div className="flex flex-col overflow-x-hidden">
                   <div className="sm:-mx-6 lg:-mx-8">
@@ -359,8 +358,8 @@ const Main = () => {
             </div>
 
             {/* Card 4 */}
-            <div className="relative mt-auto group overflow-hidden  bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 w-[28rem] ml-40">
-              <section className="section graph-section">
+            <div className="relative graph-section mt-auto group overflow-hidden  bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2  lg:w-[24rem] xl:w-[28rem] lg:ml-40">
+              <section className="section ">
                 <h2>Graph</h2>
                 <div className="graph-container">
                   {/* Render your graph here */}
