@@ -270,7 +270,7 @@ const Main = () => {
                         <ul className="px-5 ">
                           {relatedQuestions.map((question, index) => (
                             <li
-                              className="border-b-2 border-zinc-600 py-1 mt-2  flex justify-between hover:bg-slate-300 transition-transform duration-3000 ease-in-out"
+                              className="border-b-2 border-zinc-600 py-1 mt-2  flex justify-between hover:text-cyan-400 transition-transform duration-3000 ease-in-out"
                               key={index}
                             >
                               {question}
