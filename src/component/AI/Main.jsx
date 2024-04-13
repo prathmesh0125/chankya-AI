@@ -216,9 +216,18 @@ const Main = () => {
               <div className="result-data relative">
                 {/* <img src="images/chankya.png" alt="" /> */}
                 <div>
-                  <i>
-                    <GiMoebiusStar className="text-3xl" />
-                  </i>
+                <i
+  className="text-3xl"
+  // onClick={() => {
+  //   const icon = document.querySelector('.rotate-on-click');
+  //   icon.classList.add('rotate-animation');
+  //   setTimeout(() => {
+  //     icon.classList.remove('rotate-animation');
+  //   }, 1000);
+  // }}
+>
+  <GiMoebiusStar className="rotate-on-click" />
+</i>
                   {/* {loading ? "" : <p>Answer</p>} */}
                 </div>
                 {loading ? (

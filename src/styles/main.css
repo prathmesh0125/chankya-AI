@@ -299,3 +299,16 @@ display: none;
     display: none;
   } */
 }
+
+/* .rotate-animation {
+  animation: rotateOnce 1s forwards;
+}
+
+@keyframes rotateOnce {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+} */
