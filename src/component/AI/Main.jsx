@@ -14,6 +14,7 @@ import { HiSpeakerWave } from "react-icons/hi2";
 import { GiMoebiusStar } from "react-icons/gi";
 import { FaPlus } from "react-icons/fa6";
 import { RiStackLine } from "react-icons/ri";
+import BottomStrip from "../AI/BottomStrip"
 const Main = () => {
   const {
     onSent,
@@ -241,7 +242,12 @@ const Main = () => {
                     <div>
                       <h1 className="text-lg font-medium">Answer</h1>
                       {/* <br/> */}
-                      <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+                      <div>
+
+                      <p dangerouslySetInnerHTML={{ __html: resultData }}>
+                      </p>
+                        <BottomStrip/>
+                      </div>
                     </div>
                     <div></div>
                     {showTooltip && (
