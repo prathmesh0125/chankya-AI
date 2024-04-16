@@ -75,3 +75,32 @@
    .replace(/(?:^|\n)\s*(\d+\.)(.*?)(?=\n|$)/g, '<li style="margin-left: 20px;">$1 $2</li>'); 
 
  formattedResponse = `<ul style="list-style: none;">${formattedResponse}</ul>`; 
+
+
+ ///
+ // useEffect(() => {
+  //   const generateRelatedQuestions = (prompt) => {
+  //     // Here you can implement your logic to generate related questions
+  //     // This could be done using an NLP model or predefined rules
+  //     // For demonstration, I'm using a simple rule-based approach
+  //     const relatedQuestions = [];
+
+  //     // Example rule-based generation
+  //     relatedQuestions.push(`What is ${prompt}?`);
+  //     relatedQuestions.push(`How does ${prompt} work?`);
+  //     // Add more rules or customize as needed
+
+  //     // Limit the number of questions to 3
+  //     return relatedQuestions.slice(0, 3);
+  //   };
+
+  //   if (resultData && recentPrompt) {
+  //     // Call the function to generate related questions based on the recent prompt
+  //     const promptRelatedQuestions = generateRelatedQuestions(recentPrompt);
+
+  //     // Delay before setting related questions
+  //     setTimeout(() => {
+  //       setRelatedQuestions(promptRelatedQuestions);
+  //     }, 2000); // Add a delay of 2 seconds before setting related questions
+  //   }
+  // }, [resultData, recentPrompt]);

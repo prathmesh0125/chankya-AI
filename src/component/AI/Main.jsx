@@ -246,7 +246,7 @@ const Main = () => {
 
                       <p dangerouslySetInnerHTML={{ __html: resultData }}>
                       </p>
-                        <BottomStrip/>
+                        <BottomStrip resultData ={resultData}/>
                       </div>
                     </div>
                     <div></div>
