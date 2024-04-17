@@ -39,7 +39,7 @@ const Main = () => {
     "Provide an overview of Microsoft's business.",
     "Provide an overview of Microsoft's business.",
     "Provide an overview of Microsoft's business.",
-    "Provide an overview of Microsoft's business.",
+    "Provide an overview of google businesss",
   ]);
   
   const [data, setData] = useState([
