@@ -14,7 +14,8 @@ import { HiSpeakerWave } from "react-icons/hi2";
 import { GiMoebiusStar } from "react-icons/gi";
 import { FaPlus } from "react-icons/fa6";
 import { RiStackLine } from "react-icons/ri";
-import BottomStrip from "../AI/BottomStrip"
+import BottomStrip from "../AI/BottomStrip";
+import compromise from 'compromise';
 const Main = () => {
   const {
     onSent,
@@ -39,9 +40,9 @@ const Main = () => {
     "Provide an overview of Microsoft's business.",
     "Provide an overview of Microsoft's business.",
     "Provide an overview of Microsoft's business.",
-    "Provide an overview of google businesss",
+    "Provide an overview of Microsoft's business.",
   ]);
-  
+
   const [data, setData] = useState([
     {
       id: 1,
@@ -72,6 +73,7 @@ const Main = () => {
 
   const [tooltipText, setTooltipText] = useState("Speak Loud");
   const [showTooltip, setShowTooltip] = useState(false);
+  // const [relatedQuestions, setRelatedQuestions] = useState([]);
   useEffect(() => {
     if (resultData) {
       // Update related questions once resultData is available
@@ -87,32 +89,26 @@ const Main = () => {
   }, [resultData]);
 
   // useEffect(() => {
-  //   const generateRelatedQuestions = (prompt) => {
-  //     // Here you can implement your logic to generate related questions
-  //     // This could be done using an NLP model or predefined rules
-  //     // For demonstration, I'm using a simple rule-based approach
-  //     const relatedQuestions = [];
-
-  //     // Example rule-based generation
-  //     relatedQuestions.push(`What is ${prompt}?`);
-  //     relatedQuestions.push(`How does ${prompt} work?`);
-  //     // Add more rules or customize as needed
-
-  //     // Limit the number of questions to 3
-  //     return relatedQuestions.slice(0, 3);
-  //   };
-
-  //   if (resultData && recentPrompt) {
-  //     // Call the function to generate related questions based on the recent prompt
-  //     const promptRelatedQuestions = generateRelatedQuestions(recentPrompt);
-
-  //     // Delay before setting related questions
-  //     setTimeout(() => {
-  //       setRelatedQuestions(promptRelatedQuestions);
-  //     }, 2000); // Add a delay of 2 seconds before setting related questions
+  //   if (resultData) {
+  //     // Generate related questions once resultData is available
+  //     const generatedQuestions = generateRelatedQuestions(recentPrompt);
+  //     setRelatedQuestions(generatedQuestions);
   //   }
-  // }, [resultData, recentPrompt]);
 
+  // }, [resultData]);
+
+  // const generateRelatedQuestions = (prompt) => {
+  //   console.log(prompt)
+  //   const doc = compromise(prompt);
+  //   const questions = doc
+  //     .questions()
+  //     .out("array")
+  //     .map((q) => q.normal);
+  //     console.log(questions)
+  //   return questions;
+
+  // };
+ 
   const handleSearch = () => {
     // Dummy graph data
     const dummyGraphData = [
@@ -131,18 +127,6 @@ const Main = () => {
       { id: 3, name: "Doe", age: 35 },
     ];
     setTableData(dummyTableData);
-  };
-
-  const handleCopyClick = async () => {
-    try {
-      // Copy the text to the clipboard
-      await navigator.clipboard.writeText(
-        document.querySelector(".result-data p").innerText
-      );
-      setTooltipText("Copied");
-    } catch (error) {
-      console.error("Failed to copy text:", error);
-    }
   };
 
   const handleMouseEnter = () => {
@@ -217,18 +201,18 @@ const Main = () => {
               <div className="result-data relative">
                 {/* <img src="images/chankya.png" alt="" /> */}
                 <div>
-                <i
-  className="text-3xl"
-  // onClick={() => {
-  //   const icon = document.querySelector('.rotate-on-click');
-  //   icon.classList.add('rotate-animation');
-  //   setTimeout(() => {
-  //     icon.classList.remove('rotate-animation');
-  //   }, 1000);
-  // }}
->
-  <GiMoebiusStar className="rotate-on-click" />
-</i>
+                  <i
+                    className="text-3xl"
+                    // onClick={() => {
+                    //   const icon = document.querySelector('.rotate-on-click');
+                    //   icon.classList.add('rotate-animation');
+                    //   setTimeout(() => {
+                    //     icon.classList.remove('rotate-animation');
+                    //   }, 1000);
+                    // }}
+                  >
+                    <GiMoebiusStar className="rotate-on-click" />
+                  </i>
                   {/* {loading ? "" : <p>Answer</p>} */}
                 </div>
                 {loading ? (
@@ -243,10 +227,8 @@ const Main = () => {
                       <h1 className="text-lg font-medium">Answer</h1>
                       {/* <br/> */}
                       <div>
-
-                      <p dangerouslySetInnerHTML={{ __html: resultData }}>
-                      </p>
-                        <BottomStrip resultData ={resultData}/>
+                        <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+                        <BottomStrip resultData={resultData} />
                       </div>
                     </div>
                     <div></div>
@@ -262,8 +244,11 @@ const Main = () => {
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     /> */}
-                    <HiSpeakerWave className="copy-icon absolute right-3 top-3 cursor-pointer text-2xl"  onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}/>
+                    <HiSpeakerWave
+                      className="copy-icon absolute right-3 top-3 cursor-pointer text-2xl"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    />
                     {/* Other content */}
 
                     {/* Other content */}
@@ -275,7 +260,12 @@ const Main = () => {
               ) : (
                 <div className="relative overflow-hidden rounded-lg  bg-white mt-2 shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out mb-5">
                   <div className="section related-questions-section">
-                    <h2 className="flex gap-2"><i className="text-2xl"><RiStackLine/></i>Related Questions</h2>
+                    <h2 className="flex gap-2">
+                      <i className="text-2xl">
+                        <RiStackLine />
+                      </i>
+                      Related Questions
+                    </h2>
 
                     <div className="related-questions-container">
                       {loading ? (
@@ -290,7 +280,7 @@ const Main = () => {
                             >
                               {question}
                               <i>
-                                <FaPlus className="cursor-pointer"/>
+                                <FaPlus className="cursor-pointer" />
                               </i>
                             </li>
                           ))}
@@ -303,9 +293,7 @@ const Main = () => {
             </div>
 
             {/* Card 2 */}
-            <div
-              className=" table-section relative group overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 lg:w-[24rem] xl:w-[28rem]    lg:ml-40"
-            >
+            <div className=" table-section relative group overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 lg:w-[24rem] xl:w-[28rem]    lg:ml-40">
               <section className="section ">
                 <h2>Table</h2>
                 <div className="flex flex-col overflow-x-hidden">
@@ -313,7 +301,7 @@ const Main = () => {
                     <div className="inline-block min-w-full py-2 sm:px-5 lg:px-8">
                       <div className="overflow-hidden">
                         <table className="min-w-full overflow-hidden text-start text-sm font-light text-surface dark:text-white">
-                          <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
+                          <thead className="border-b text-black border-neutral-200 font-medium dark:border-white/10">
                             <tr>
                               <th scope="col" className="px-6 py-4">
                                 #
@@ -341,9 +329,9 @@ const Main = () => {
                                 key={item.id}
                                 className={`${
                                   index % 2 === 0 ? "bg-gray-100" : "bg-white"
-                                } border-b border-neutral-200 dark:border-white/10`}
+                                } border-b border-neutral-200 text-black  dark:border-white/10`}
                               >
-                                <td className="whitespace-nowrap px-6 py-4 font-medium">
+                                <td className="whitespace-nowrap px-6 py-4 text-black font-medium">
                                   {item.id}
                                 </td>
                                 <td className="whitespace-nowrap px-6 py-4">

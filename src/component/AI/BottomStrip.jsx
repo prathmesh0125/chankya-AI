@@ -60,7 +60,7 @@ export default function BottomStrip({ resultData }) {
   return (
     <>
       {isVisible && (
-        <div className="relative inset-x-0 flex items-center justify-center gap-6 m-auto -bottom-4">
+        <div className=" botoom-strip relative inset-x-0 flex items-center justify-center gap-6 -ml-12 -bottom-4">
           <TextButton
             Icon={BiHeart}
             text={likeClicked ? "Liked" : "Like"}
@@ -87,12 +87,12 @@ export default function BottomStrip({ resultData }) {
           />
           <div className="relative">
             <TextButton Icon={BiDotsHorizontal} text="More" onClick={() => setIsPopoverOpen(!isPopoverOpen)} />
-            {isPopoverOpen && (
+            {!isPopoverOpen && (
               <div className="absolute right-0 -mt-20 w-32 rounded-lg shadow-lg bg-gray-100 dark:bg-gray-800">
-                <div className="py-1">
+                <div className="py-1  bg-white">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 report-button"
+                    className="block px-4 py-2 text-sm bg-white text-gray-700 hover:bg-gray-100 hover:text-gray-900 report-button"
                   >
                     Report illegal
                   </a>
