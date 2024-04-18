@@ -258,7 +258,7 @@ const Main = () => {
               {loading ? (
                 ""
               ) : (
-                <div className="relative overflow-hidden rounded-lg  bg-white mt-2 shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out mb-5">
+                <div className="relative rel-question overflow-hidden rounded-lg  bg-white mt-2 shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out mb-5">
                   <div className="section related-questions-section">
                     <h2 className="flex gap-2">
                       <i className="text-2xl">
