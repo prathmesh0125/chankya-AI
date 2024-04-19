@@ -1,3 +1,4 @@
+
 .sidebar {
   min-height: 100vh;
   display: inline-flex;
@@ -8,6 +9,7 @@
   /* background-color: #ccd3dc; */
   padding: 25px 15px;
   border-right: 1px solid black;
+
 }
 
 .sidebar .top i {
@@ -32,6 +34,8 @@
   font-size: 14px;
   color: grey;
   cursor: pointer;
+  transition: 5s;
+
 }
 /* .sidebar .newchat p{
   color: black;
