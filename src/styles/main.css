@@ -184,17 +184,29 @@
   flex-direction: column;
   gap: 10px;
 }
+
 .loader hr {
   border-radius: 4px;
   border: none;
-  /* background-color: #f6f7f8 ; */
-  /* background: linear-gradient(to right,#9ed7ff,#ffffff,#9ed7ff); */
-  background-color: #a9c9ff;
-  background: linear-gradient(to right, #a9c9ff, #ffbbec, #8fd3e9b7);
   height: 20px;
-  animation: loader 3s infinite linear;
 }
-@keyframes loader {
+
+.loader hr:nth-child(1) {
+  background: linear-gradient(to right, #85c1e9, #ffffff, #85c1e9);
+  animation: loader1 5s infinite linear;
+}
+
+.loader hr:nth-child(2) {
+  background: linear-gradient(to right, #ffffff, #85c1e9, #ffffff);
+  animation: loader2 7s infinite linear;
+}
+
+.loader hr:nth-child(3) {
+  background: linear-gradient(to right, #ffffff, #ffffff, #85c1e9);
+  animation: loader3 9s infinite linear;
+}
+
+@keyframes loader1 {
   0% {
     background-position: -800px 0px;
   }
@@ -202,6 +214,25 @@
     background-position: 800px 0px;
   }
 }
+
+@keyframes loader2 {
+  0% {
+    background-position: -800px 0px;
+  }
+  100% {
+    background-position: 800px 0px;
+  }
+}
+
+@keyframes loader3 {
+  0% {
+    background-position: -800px 0px;
+  }
+  100% {
+    background-position: 800px 0px;
+  }
+}
+
 .result-data p {
   position: relative;
   left: -3.4rem;
@@ -322,5 +353,42 @@ display: none;
   }
   100%{
     opacity: 1;
+  }
+}
+
+.rotate {
+  position: relative; /* Ensure absolute positioning works relative to this */
+  animation: rotation 1s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate:after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 95, 95, 0) 0%, rgba(245, 95, 95, 0) 30%, rgba(245, 95, 95, 0.5) 80%, rgba(245, 95, 95, 0) 100%);
+  animation: spread 2s infinite linear;
+
+}
+
+@keyframes spread {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
   }
 }

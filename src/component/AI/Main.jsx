@@ -15,7 +15,7 @@ import { GiMoebiusStar } from "react-icons/gi";
 import { FaPlus } from "react-icons/fa6";
 import { RiStackLine } from "react-icons/ri";
 import BottomStrip from "../AI/BottomStrip";
-import compromise from 'compromise';
+import compromise from "compromise";
 const Main = () => {
   const {
     onSent,
@@ -108,7 +108,7 @@ const Main = () => {
   //   return questions;
 
   // };
- 
+
   const handleSearch = () => {
     // Dummy graph data
     const dummyGraphData = [
@@ -198,31 +198,35 @@ const Main = () => {
                   )}
                 </div>
               )}
-              <div className="result-data relative">
+              <div className="">
                 {/* <img src="images/chankya.png" alt="" /> */}
-                <div>
-                  <i
-                    className="text-3xl"
-                    // onClick={() => {
-                    //   const icon = document.querySelector('.rotate-on-click');
-                    //   icon.classList.add('rotate-animation');
-                    //   setTimeout(() => {
-                    //     icon.classList.remove('rotate-animation');
-                    //   }, 1000);
-                    // }}
-                  >
-                    <GiMoebiusStar className="rotate-on-click" />
-                  </i>
-                  {/* {loading ? "" : <p>Answer</p>} */}
-                </div>
+
                 {loading ? (
-                  <div className="loader">
-                    <hr />
-                    <hr />
-                    <hr />
+                  <div className="flex result-data relative">
+                    <i className="text-3xl rotate">
+                      <GiMoebiusStar className="rotate-on-click" />
+                    </i>
+                    {/* {loading ? "" : <p>Answer</p>} */}
+                    <div className="loader">
+                      <hr />
+                      <hr />
+                      <hr />
+                    </div>
                   </div>
                 ) : (
-                  <div>
+                  <div className="flex result-data relative">
+                    <i
+                      className="text-3xl"
+                      // onClick={() => {
+                      //   const icon = document.querySelector('.rotate-on-click');
+                      //   icon.classList.add('rotate-animation');
+                      //   setTimeout(() => {
+                      //     icon.classList.remove('rotate-animation');
+                      //   }, 1000);
+                      // }}
+                    >
+                      <GiMoebiusStar className="rotate-on-click" />
+                    </i>
                     <div>
                       <h1 className="text-lg font-medium">Answer</h1>
                       {/* <br/> */}
