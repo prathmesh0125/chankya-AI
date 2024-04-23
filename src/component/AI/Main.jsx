@@ -176,7 +176,8 @@ const Main = () => {
             {defaultPrompt.map((def, index) => (
           <div
             key={index}
-        
+            onClick={() => (defaultsuggestion(def), handleSearch())}
+
             className={`card ${animatedIndex >= index ? "animated" : ""}`}
           >
             <p>{def}</p>
@@ -283,7 +284,7 @@ const Main = () => {
       <div className="related-questions-container">
         {loading ? (
           // Loader component or animation goes here
-          <div className="loader  text-black">loading.... </div>
+          <div className="loader  text-black pl-4">loading.... </div>
         ) : (
           <ul className="px-5 ">
             {relatedQuestions.map((question, index) => (

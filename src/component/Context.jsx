@@ -31,6 +31,8 @@ const ContextProvider = (props) => {
     setShowResult(false);
   };
   const defaultPromt = () => {
+    setRenderComplete(false);
+
     setLoading(false);
     setShowResult(false);
   };
@@ -43,6 +45,8 @@ const ContextProvider = (props) => {
     if (prompt !== undefined) {
       response = await runChat(prompt);
       setPrevoisPrompt((prev) => [...prev, prompt]);
+    setRenderComplete(false);
+
       setRecentPrompt(prompt);
     } else {
       prompt = input; // Assign input to prompt if it's undefined
