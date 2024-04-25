@@ -158,7 +158,7 @@ const Main = () => {
 
   return (
     <div className="main bg-[#f0f0f0]">
-      <div className="main-container mt-4 ">
+      <div className="main-container  ">
         {!showResult ? (
           <>
             <div className="nav">
@@ -186,8 +186,8 @@ const Main = () => {
             </div>
           </>
         ) : (
-          <section className="Main-page grid md:grid-cols-1  lg:grid-cols-2 mt-4 lg:grid-rows-2 gap-8 p-2 md:p-3">
-            <div className="result md:row-start-1 lg:w-[42rem] ml-1 xl:w-[48rem] md:row-end-3 w-[46rem] bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out">
+          <section className="Main-page grid  mt-4  gap-8 px-24 p-2">
+            <div className="result ml-1 bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out">
               <div className="result-title">
                 <img src="images/user.jpg" alt="" />
                 <p>{recentPrompt}</p>
@@ -306,88 +306,9 @@ const Main = () => {
               )}
             </div>
 
-            {/* Card 2 */}
-            <div className=" table-section relative group overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 lg:w-[24rem] xl:w-[28rem]    lg:ml-40">
-              <section className="section ">
-                <h2>Table</h2>
-                <div className="flex flex-col overflow-x-hidden">
-                  <div className="sm:-mx-6 lg:-mx-8">
-                    <div className="inline-block min-w-full py-2 sm:px-5 lg:px-8">
-                      <div className="overflow-hidden">
-                        <table className="min-w-full overflow-hidden text-start text-sm font-light text-surface dark:text-white">
-                          <thead className="border-b text-black border-neutral-200 font-medium dark:border-white/10">
-                            <tr>
-                              <th scope="col" className="px-6 py-4">
-                                #
-                              </th>
-                              <th scope="col" className="px-6 py-4">
-                                Heading
-                              </th>
-                              <th scope="col" className="px-6 py-4">
-                                Heading
-                              </th>
-                              <th scope="col" className="px-6 py-4">
-                                Heading
-                              </th>
-                              <th scope="col" className="px-6 py-4">
-                                Heading
-                              </th>
-                              <th scope="col" className="px-6 py-4">
-                                Heading
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {data.map((item, index) => (
-                              <tr
-                                key={item.id}
-                                className={`${
-                                  index % 2 === 0 ? "bg-gray-100" : "bg-white"
-                                } border-b border-neutral-200 text-black  dark:border-white/10`}
-                              >
-                                <td className="whitespace-nowrap px-6 py-4 text-black font-medium">
-                                  {item.id}
-                                </td>
-                                <td className="whitespace-nowrap px-6 py-4">
-                                  {item.heading1}
-                                </td>
-                                <td className="whitespace-nowrap px-6 py-4">
-                                  {item.heading2}
-                                </td>
-                                <td className="whitespace-nowrap px-6 py-4">
-                                  {item.heading3}
-                                </td>
-                                <td className="whitespace-nowrap px-6 py-4">
-                                  {item.heading4}
-                                </td>
-                                <td className="whitespace-nowrap px-6 py-4">
-                                  {item.heading5}
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-
+            
             {/* Card 4 */}
-            <div className="relative graph-section mt-auto group overflow-hidden  bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2  lg:w-[24rem] xl:w-[28rem] lg:ml-40">
-              <section className="section ">
-                <h2>Graph</h2>
-                <div className="graph-container">
-                  {/* Render your graph here */}
-                  <VictoryChart width={400} height={300}>
-                    <VictoryLine data={graphData} />
-                    <VictoryAxis />
-                    <VictoryAxis dependentAxis />
-                  </VictoryChart>
-                </div>
-              </section>
-            </div>
+       
           </section>
         )}
         <div className="main-bottom">
