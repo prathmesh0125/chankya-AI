@@ -54,33 +54,7 @@ const Main = () => {
 
     return () => clearInterval(interval);
   }, []);
-  const [data, setData] = useState([
-    {
-      id: 1,
-      heading1: "Cell",
-      heading2: "Cell",
-      heading3: "Cell",
-      heading4: "Cell",
-      heading5: "Cell",
-    },
-    {
-      id: 2,
-      heading1: "Cell",
-      heading2: "Cell",
-      heading3: "Cell",
-      heading4: "Cell",
-      heading5: "Cell",
-    },
-    {
-      id: 3,
-      heading1: "Cell",
-      heading2: "Cell",
-      heading3: "Cell",
-      heading4: "Cell",
-      heading5: "Cell",
-    },
-    // Add more data as needed
-  ]);
+
 
   const [tooltipText, setTooltipText] = useState("Speak Loud");
   const [showTooltip, setShowTooltip] = useState(false);
@@ -119,26 +93,6 @@ const Main = () => {
   //   return questions;
 
   // };
-
-  const handleSearch = () => {
-    // Dummy graph data
-    const dummyGraphData = [
-      { x: 1, y: 10 },
-      { x: 2, y: 20 },
-      { x: 3, y: 30 },
-      { x: 4, y: 40 },
-      { x: 5, y: 50 },
-    ];
-    setGraphData(dummyGraphData);
-
-    // Dummy table data
-    const dummyTableData = [
-      { id: 1, name: "John", age: 30 },
-      { id: 2, name: "Jane", age: 25 },
-      { id: 3, name: "Doe", age: 35 },
-    ];
-    setTableData(dummyTableData);
-  };
 
   const handleMouseEnter = () => {
     setShowTooltip(true);
@@ -186,8 +140,8 @@ const Main = () => {
             </div>
           </>
         ) : (
-          <section className="Main-page grid  mt-4  gap-8 px-24 p-2">
-            <div className="result ml-1 bg-neutral-300 shadow-lg p-[0px 5%] rounded-lg transition-transform duration-300 ease-in-out">
+          <section className="Main-page grid  mt-4  gap-8 px-10 lg:px-52 p-2">
+            <div className="result  bg-neutral-300 shadow-lg  rounded-lg transition-transform duration-300 ease-in-out px-6">
               <div className="result-title">
                 <img src="images/user.jpg" alt="" />
                 <p>{recentPrompt}</p>

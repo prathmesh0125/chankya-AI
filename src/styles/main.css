@@ -86,7 +86,7 @@ margin-top: -1rem;
   /* position: absolute; */
   width: 100%;
   max-width: 900px;
-  /* padding: 0px 20px; */
+  padding: 0px 20px;
   margin: 4rem auto;
   margin-bottom: 0;
 }
@@ -134,11 +134,13 @@ margin-top: -1rem;
   font-weight: 300;
 } */
 .result {
-  padding: 0px 5%;
+  /* padding: 0px 0px; */
   min-height: 85vh;
  max-height: 85vh;
   /* width: 51rem; */
   overflow-y: scroll;
+  /* margin-left: 10rem; */
+  /* margin-right: 10rem; */
 }
 
 /* .result::-webkit-scrollbar {
