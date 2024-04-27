@@ -4,18 +4,13 @@ import { FaMicrophone } from "react-icons/fa";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import { IoSendSharp } from "react-icons/io5";
 import { Context } from "../Context";
-import { VictoryChart, VictoryLine, VictoryAxis } from "victory";
 import Resources from "../AI/Resources";
-import { FaCopy } from "react-icons/fa";
-import { MdOutlineContentCopy } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { HiSpeakerWave } from "react-icons/hi2";
-// import { GiStarProminences } from "react-icons/gi";
 import { GiMoebiusStar } from "react-icons/gi";
 import { FaPlus } from "react-icons/fa6";
 import { RiStackLine } from "react-icons/ri";
 import BottomStrip from "../AI/BottomStrip";
-import compromise from "compromise";
 const Main = () => {
   const {
     onSent,
@@ -26,7 +21,7 @@ const Main = () => {
     setInput,
     input,
     setRecentPrompt,
-    renderComplete
+    renderComplete,
   } = useContext(Context);
 
   const defaultsuggestion = async (prompt) => {
@@ -41,24 +36,25 @@ const Main = () => {
     "Provide an overview of Microsoft's business.",
     "Provide an overview of Microsoft's business.",
     "Provide an overview of Microsoft's business.",
-    "How are you?"
+    "How are you?",
   ]);
   const [animatedIndex, setAnimatedIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setAnimatedIndex((prevIndex) =>
-        prevIndex < defaultPrompt.length - 1 ? prevIndex + 1 : defaultPrompt.length
+        prevIndex < defaultPrompt.length - 1
+          ? prevIndex + 1
+          : defaultPrompt.length
       );
     }, 500); // Adjust the interval time as needed
 
     return () => clearInterval(interval);
   }, []);
 
-
   const [tooltipText, setTooltipText] = useState("Speak Loud");
   const [showTooltip, setShowTooltip] = useState(false);
-  // const [relatedQuestions, setRelatedQuestions] = useState([]);
+
   useEffect(() => {
     if (resultData) {
       // Update related questions once resultData is available
@@ -73,27 +69,6 @@ const Main = () => {
     }
   }, [resultData]);
 
-  // useEffect(() => {
-  //   if (resultData) {
-  //     // Generate related questions once resultData is available
-  //     const generatedQuestions = generateRelatedQuestions(recentPrompt);
-  //     setRelatedQuestions(generatedQuestions);
-  //   }
-
-  // }, [resultData]);
-
-  // const generateRelatedQuestions = (prompt) => {
-  //   console.log(prompt)
-  //   const doc = compromise(prompt);
-  //   const questions = doc
-  //     .questions()
-  //     .out("array")
-  //     .map((q) => q.normal);
-  //     console.log(questions)
-  //   return questions;
-
-  // };
-
   const handleMouseEnter = () => {
     setShowTooltip(true);
   };
@@ -106,7 +81,7 @@ const Main = () => {
     if (event.key === "Enter") {
       event.preventDefault(); // Prevent the default behavior of submitting a form
       onSent();
-      handleSearch();
+      // handleSearch();
     }
   };
 
@@ -127,16 +102,15 @@ const Main = () => {
               <p>How can I help you today?</p>
             </div>
             <div className="cards">
-            {defaultPrompt.map((def, index) => (
-          <div
-            key={index}
-            onClick={() => (defaultsuggestion(def), handleSearch())}
-
-            className={`card ${animatedIndex >= index ? "animated" : ""}`}
-          >
-            <p>{def}</p>
-          </div>
-        ))}
+              {defaultPrompt.map((def, index) => (
+                <div
+                  key={index}
+                  onClick={() => (defaultsuggestion(def))}
+                  className={`card ${animatedIndex >= index ? "animated" : ""}`}
+                >
+                  <p>{def}</p>
+                </div>
+              ))}
             </div>
           </>
         ) : (
@@ -208,61 +182,53 @@ const Main = () => {
                         {tooltipText}{" "}
                       </div>
                     )}
-                    {/* <MdOutlineContentCopy
-                      className="copy-icon absolute right-3 top-2 cursor-pointer "
-                      onClick={handleCopyClick}
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    /> */}
+
                     <HiSpeakerWave
                       className="copy-icon absolute right-3 top-3 cursor-pointer text-2xl"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     />
-                    {/* Other content */}
-
-                    {/* Other content */}
                   </div>
                 )}
               </div>
-              { showResult && renderComplete &&(
-  <div className="relative rel-question overflow-hidden rounded-lg  bg-white mt-2 shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out mb-5">
-    <div className="section related-questions-section">
-      <h2 className="flex gap-2">
-        <i className="text-2xl">
-          <RiStackLine />
-        </i>
-        Related Questions
-      </h2>
+              {showResult && renderComplete && (
+                <div className="relative rel-question overflow-hidden rounded-lg  bg-white mt-2 shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out mb-5">
+                  <div className="section related-questions-section">
+                    <h2 className="flex gap-2">
+                      <i className="text-2xl">
+                        <RiStackLine />
+                      </i>
+                      Related Questions
+                    </h2>
 
-      <div className="related-questions-container">
-        {loading ? (
-          // Loader component or animation goes here
-          <div className="loader  text-black pl-4">loading.... </div>
-        ) : (
-          <ul className="px-5 ">
-            {relatedQuestions.map((question, index) => (
-              <li
-                className="border-b-2 border-zinc-600 py-1 mt-2  flex justify-between hover:text-cyan-400 transition-transform duration-3000 ease-in-out"
-                key={index}
-              >
-                {question}
-                <i>
-                  <FaPlus className="cursor-pointer" />
-                </i>
-              </li>
-            ))}
-          </ul>
-        )}
+                    <div className="related-questions-container">
+                      {loading ? (
+                        // Loader component or animation goes here
+                        <div className="loader  text-black pl-4">
+                          loading....{" "}
+                        </div>
+                      ) : (
+                        <ul className="px-5 ">
+                          {relatedQuestions.map((question, index) => (
+                            <li
+                              className="border-b-2 border-zinc-600 py-1 mt-2  flex justify-between hover:text-cyan-400 transition-transform duration-3000 ease-in-out"
+                              key={index}
+                            >
+                              {question}
+                              <i>
+                                <FaPlus className="cursor-pointer" />
+                              </i>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </div>
                 </div>
               )}
             </div>
 
-            
             {/* Card 4 */}
-       
           </section>
         )}
         <div className="main-bottom">
@@ -287,7 +253,6 @@ const Main = () => {
                 <i
                   onClick={() => {
                     onSent();
-                    handleSearch();
                   }}
                 >
                   <IoSendSharp />

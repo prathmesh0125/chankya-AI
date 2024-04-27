@@ -12,6 +12,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.2.1",
     "@react-oauth/google": "^0.12.1",
+    "axios": "^1.6.8",
     "compromise": "^14.13.0",
     "faker": "^6.6.6",
     "jwt-decode": "^4.0.0",
