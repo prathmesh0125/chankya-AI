@@ -44,6 +44,8 @@ const ContextProvider = (props) => {
     setLoading(true);
     setShowResult(true);
     let response;
+    setRelatedQuestions([]);
+
     let question = await runChat(`give me 3 related question of ${prompt}`);
     console.log(question);
     if (prompt !== undefined) {
@@ -72,7 +74,8 @@ const ContextProvider = (props) => {
       );
 
     formattedResponse = `<ul style="list-style: none;">${formattedResponse}</ul>`;
-
+    const organizedRelatedQuestions = question.split('\n').map(q => q.trim()).filter(q => q !== '');
+    setRelatedQuestions(organizedRelatedQuestions);
     delayPara(formattedResponse);
 
     setLoading(false);
@@ -93,6 +96,7 @@ const ContextProvider = (props) => {
     newChat,
     defaultPromt,
     renderComplete, // Provide renderComplete to consumers
+    relatedQuestions,
   };
   return (
     <Context.Provider value={contextValue}>{props.children}</Context.Provider>

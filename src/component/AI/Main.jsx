@@ -22,6 +22,7 @@ const Main = () => {
     input,
     setRecentPrompt,
     renderComplete,
+    relatedQuestions
   } = useContext(Context);
 
   const defaultsuggestion = async (prompt) => {
@@ -31,7 +32,7 @@ const Main = () => {
 
   const [graphData, setGraphData] = useState([]);
   const [tableData, setTableData] = useState([]);
-  const [relatedQuestions, setRelatedQuestions] = useState([]);
+  // const [relatedQuestions, setRelatedQuestions] = useState([]);
   const [defaultPrompt, setDefaultPrompt] = useState([
     "Provide an overview of Microsoft's business.",
     "Provide an overview of Microsoft's business.",
@@ -55,19 +56,19 @@ const Main = () => {
   const [tooltipText, setTooltipText] = useState("Speak Loud");
   const [showTooltip, setShowTooltip] = useState(false);
 
-  useEffect(() => {
-    if (resultData) {
-      // Update related questions once resultData is available
-      const dummyRelatedQuestions = [
-        "What is AI?",
-        "How does AI work?",
-        "What are the applications of AI?",
-      ];
-      setTimeout(() => {
-        setRelatedQuestions(dummyRelatedQuestions);
-      }, 3000); // Add a delay of 2 seconds before setting related questions
-    }
-  }, [resultData]);
+  // useEffect(() => {
+  //   if (resultData) {
+  //     // Update related questions once resultData is available
+  //     const dummyRelatedQuestions = [
+  //       "What is AI?",
+  //       "How does AI work?",
+  //       "What are the applications of AI?",
+  //     ];
+  //     setTimeout(() => {
+  //       // setRelatedQuestions(dummyRelatedQuestions);
+  //     }, 3000); // Add a delay of 2 seconds before setting related questions
+  //   }
+  // }, [resultData]);
 
   const handleMouseEnter = () => {
     setShowTooltip(true);
